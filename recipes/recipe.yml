@@ -204,7 +204,7 @@ modules:
   - system:
     enabled:
      - sddm.service
-   disabled:
+    disabled:
      - rpm-ostree-countme.timer
         
   - type: script
