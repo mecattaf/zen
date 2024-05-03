@@ -1,49 +1,215 @@
-# image will be published to ghcr.io/<user>/<name>
-name: template
-# description will be included in the image's metadata
-description: This is my personal OS image.
+name: NeXT
+description: Fedora Atomic spin for Asus Zenbook Duo
 
-# the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 39 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/ublue-os/base-main
+image-version: 40
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
 modules:
+  - type: akmods
+  - base: asus
+    # install:
+      #- asus? 
+
+  - type: bling
+    install:
+      - flatpaksync
+      - dconf-update-service
+      - laptop
+      - ublue-update # https://github.com/ublue-os/ublue-update
+
   - type: files
     files:
-      - usr: /usr # copies config/files/usr into your image's /usr.
-                  # put configuration files you want in /etc/ on a booted system 
-                  # in /usr/etc/ in the image. read more in files module reference.
+      - usr: /usr 
 
   - type: rpm-ostree
     repos:
-      # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%FEDORA_VERSION%/atim-starship-fedora-%FEDORA_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/tokariew/glow/repo/fedora-%FEDORA_VERSION%/tokariew-glow-fedora-%FEDORA_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%FEDORA_VERSION%/tofik-nwg-shell-fedora-%FEDORA_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/peterwu/rendezvous/repo/fedora-%FEDORA_VERSION%/peterwu-rendezvous-fedora-%FEDORA_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/atim/himalaya/repo/fedora-%FEDORA_VERSION%/atim-himalaya-fedora-%FEDORA_VERSION%.repo 
+      - https://copr.fedorainfracloud.org/coprs/mecattaf/catppuccin-theme/repo/fedora-%FEDORA_VERSION%/mecattaf-catppuccin-theme-fedora-%FEDORA_VERSION%.repo
+      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+
     install:
-      # - micro
-      # - starship
+      - gcc-c++
+      - gcc
+      - make
+      - mesa-libGLU
+      - podman-compose
+      - podman-tui
+      - podmansh
+      - hyprland
+      - xdg-desktop-portal-hyprland
+      - waybar
+      - xorg-x11-server-Xwayland
+      - xdg-user-dirs
+      - android-tools
+      - android-file-transfer
+      - swaybg
+      - swayidle
+      - swaylock
+      - tuned
+      - tuned-utils
+      - tuned-switcher
+      - polkit-gnome
+      - libseat
+      - network-manager-applet
+      - system-config-printer
+      - firewall-config
+      - blueman
+      - thunar
+      - thunar-archive-plugin
+      - imv
+      - kvantum
+      - gnome-disk-utility
+      - mako
+      - xarchiver
+      - pavucontrol
+      - swappy
+      - docker-compose
+      - sddm
+      - qt5ct
+      - qt6ct
+      - qt6-qtwayland
+      - qt5-qtwayland
+      - qt5-qtgraphicaleffects
+      - qt5-qtquickcontrols2
+      - qt5-qtsvg
+      - grimshot
+      - wdisplays
+      - gnome-keyring
+      - overpass-fonts
+      - overpass-mono-fonts
+      - google-noto-emoji-fonts
+      - google-noto-fonts-common
+      - google-roboto-fonts
+      - google-noto-sans-fonts
+      - light
+      - fish
+      - wtype
+      - pipewire
+      - wireplumber
+      - pipewire-alsa
+      - pipewire-jack-audio-connection-kit
+      - pipewire-pulseaudio
+      - brightnessctl
+      - polkit
+      - lxpolkit
+      - dbus-tools
+      - dbus-daemon
+      - wl-clipboard
+      - playerctl
+      - vulkan-validation-layers
+      - vulkan-tools
+      - bluez
+      - bluez-tools
+      - thunar-volman
+      - p7zip
+      - unrar-free
+      - slurp
+      - grim
+      - wlr-randr
+      - wlsunset
+      - kanshi
+      - adwaita-qt5
+      - fontawesome-fonts-all
+      - gnome-themes-extra
+      - gnome-icon-theme
+      - sddm-themes
+      - python3-pip
+      - python3-cairo
+      - libadwaita
+      - cpio
+      - meson
+      - cmake
+      - swayfx
+      - starship
+      - distrobox
+      - polkit-kde
+      - alacritty
+      - kitty
+      - kitty-terminfo
+      - clipman
+      - gammastep
+      - remmina
+      - wayvnc
+      - neovim
+      - ripgrep
+      - pandoc
+      - azote
+      - nwg-look
+      - zathura
+      - zathura-pdf-poppler
+      - udiskie
+      - NetworkManager-tui
+      - xdg-desktop-portal
+      - xdg-desktop-portal-wlr
+      - stow
+      - g++
+      - nautilus
+      - mpd
+      - mpc
+      - mpdris2
+      - ncmpcpp
+      - sox
+      - alsa-sof-firmware
+      - glow
+      - wf-recorder
+      - yt-dlp
+      - aria2
+      - bibata-cursor-themes
+      - gsettings-desktop-schemas
+      - tailscale
+      - catppuccin-theme
+      - himalaya
+      - mesa-dri-drivers
+      - mesa-vulkan-drivers
+      - gvfs
+      - gvfs-mtp
+      - bolt
+      - fprintd-pam
+
     remove:
-      # example: removing firefox (in favor of the flatpak)
-      # "firefox" is the main package, "firefox-langpacks" is a dependency
-      # - firefox
-      # - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+      - firefox
+      - firefox-langpacks
+      - virtualbox-guest-additions
+      - toolbox
+      - nvtop
+
+  - type: fonts
+    nerd-fonts:
+      - JetBrainsMono
+      - NerdFontsSymbolsOnly
+
 
   - type: default-flatpaks
-    notify: true # Send notification after install/uninstall is finished (true/false)
-    system:
-      # If no repo information is specified, Flathub will be used by default
-      # repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      # repo-name: flathub
-      # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
+    notify: true 
+    user:
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub
       install:
-        # - org.mozilla.firefox
-        # - org.gnome.Loupe
-        # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
-      # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
-      # only normal flatpak applications are (like Floorp Lightning web browser in this example).
-      # Installing different branches of the same Flatpak is not supported.
-      remove:
-      # - org.gnome.eog
+        - com.google.Chrome
+        - org.videolan.VLC
+        - org.desmume.DeSmuME
+        - io.mgba.mGBA
+        - org.ppsspp.PPSSPP
+        - com.hunterwittenborn.Celeste
+        - com.obsproject.Studio
+        - com.obsproject.Studio.Plugin.OBSVkCapture
+          #- org.freedesktop.Platform.VulkanLayer.OBSVkCapture
+          #- org.freedesktop.Platform.GStreamer.gstreamer-vaapi
+      
+  - type: systemd
+  - system:
+    enabled:
+     - sddm.service
+   disabled:
+     - rpm-ostree-countme.timer
+        
+  - type: script
+    scripts:
+      - post-install.sh
 
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: signing 
 
