@@ -23,12 +23,12 @@ modules:
 
   - type: rpm-ostree
     repos:
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%FEDORA_VERSION%/atim-starship-fedora-%FEDORA_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/tokariew/glow/repo/fedora-%FEDORA_VERSION%/tokariew-glow-fedora-%FEDORA_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%FEDORA_VERSION%/tofik-nwg-shell-fedora-%FEDORA_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/peterwu/rendezvous/repo/fedora-%FEDORA_VERSION%/peterwu-rendezvous-fedora-%FEDORA_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/atim/himalaya/repo/fedora-%FEDORA_VERSION%/atim-himalaya-fedora-%FEDORA_VERSION%.repo 
-      - https://copr.fedorainfracloud.org/coprs/mecattaf/catppuccin-theme/repo/fedora-%FEDORA_VERSION%/mecattaf-catppuccin-theme-fedora-%FEDORA_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%IMAGE_VERSION%/atim-starship-fedora-%IMAGE_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/tokariew/glow/repo/fedora-%IMAGE_VERSION%/tokariew-glow-fedora-%IMAGE_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%IMAGE_VERSION%/tofik-nwg-shell-fedora-%IMAGE_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/peterwu/rendezvous/repo/fedora-%IMAGE_VERSION%/peterwu-rendezvous-fedora-%IMAGE_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/atim/himalaya/repo/fedora-%IMAGE_VERSION%/atim-himalaya-fedora-%IMAGE_VERSION%.repo 
+      - https://copr.fedorainfracloud.org/coprs/mecattaf/catppuccin-theme/repo/fedora-%IMAGE_VERSION%/mecattaf-catppuccin-theme-fedora-%IMAGE_VERSION%.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
     install:
