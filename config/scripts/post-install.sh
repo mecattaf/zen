@@ -14,7 +14,7 @@ set -oue pipefail
 #systemctl enable tailscaled.service
 
 # create new username
-hostnamectl set-hostname dev
+# hostnamectl set-hostname dev
 
 # ublue flatpak manager (?)
 # note where bluefin saves the flatpaks: https://github.com/ublue-os/bluefin/tree/68b658fa06c22e9ab9a84615c52ae406b1dd021b/usr/etc/flatpak
