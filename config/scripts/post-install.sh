@@ -5,7 +5,7 @@
 # builds actually ran successfully without any errors!
 
 # Tell build process to exit if there are any errors.
-set -oue pipefail
+##set -oue pipefail
 
 # set sddm as default display-manager
 # systemctl set-default graphical.target
@@ -24,12 +24,12 @@ set -oue pipefail
 # flatpak overrides
 #flatpak --user override --filesystem=~/.themes
 #flatpak --user override --filesystem=~/.icons
-flatpak --user override --env=GTK_THEME=Catppuccin-Mocha-Standard-Green-Dark
+##flatpak --user override --env=GTK_THEME=Catppuccin-Mocha-Standard-Green-Dark
 
 # fix to load nvim-treesitter
-sudo ln -s /usr/bin/ld.bfd /usr/local/bin/ld
+##sudo ln -s /usr/bin/ld.bfd /usr/local/bin/ld
 
 # emoji picker
-pip install emoji-fzf
+##pip install emoji-fzf
 
 
