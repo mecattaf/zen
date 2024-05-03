@@ -207,9 +207,9 @@ modules:
     disabled:
      - rpm-ostree-countme.timer
         
-  - type: script
-    scripts:
-      - post-install.sh
+  #- type: script
+   # scripts:
+    #  - post-install.sh
 
   - type: signing 
 
