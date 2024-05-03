@@ -1,19 +1,14 @@
-# BlueBuild Template &nbsp; [![build-ublue](https://github.com/blue-build/template/actions/workflows/build.yml/badge.svg)](https://github.com/blue-build/template/actions/workflows/build.yml)
+# Zen Linux &nbsp; [![build-ublue](https://github.com/blue-build/template/actions/workflows/build.yml/badge.svg)](https://github.com/blue-build/template/actions/workflows/build.yml)
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
-
-After setup, it is recommended you update this README to describe your custom image.
+See the [BlueBuild docs](https://blue-build.org/how-to/setup/). 
 
 ## Installation
-
-> **Warning**  
-> [This is an experimental feature](https://www.fedoraproject.org/wiki/Changes/OstreeNativeContainerStable), try at your own discretion.
 
 To rebase an existing atomic Fedora installation to the latest build:
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/blue-build/template:latest
+  sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/mecattaf/zen:latest
   ```
 - Reboot to complete the rebase:
   ```
@@ -21,23 +16,68 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
 - Then rebase to the signed image, like so:
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/blue-build/template:latest
+  sudo rpm-ostree rebase ostree-image-signed:docker://ghcr.io/mecattaf/zen:latest
   ```
 - Reboot again to complete the installation
   ```
   systemctl reboot
   ```
 
-The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
+### Manual setup using GUI
+
+- Run `nwg-look` and set up appearance settings
+- Run `azote` and pick wallpaper
+- Run 'nautilus' and set hidden files to "show"
+
+### Google Chrome
+
+1) In `chrome://settings`:
+
+System
+
+- Continue running background apps when Google Chrome is closed ❌
+- Use hardware acceleration when available ✅
+
+Appearance
+
+- Theme: `All Black - Full Dark Theme/Black Theme`
+- Mode: `Dark`
+- Show home button ❌
+- Show bookmarks bar ❌
+- Show images on tab hover preview cards ✅
+- Use system title bars and borders ✅
+
+2) In`chrome://flags`:
+
+- Preferred Ozone Platform: `Wayland`
+- Chrome Refresh 2023 ✅
+- Realbox Chrome Refresh 2023 ✅
+- Chrome WebUI Refresh 2023 ✅
+- Chrome Refresh 2023 New Tab Button ✅
+- Enable Display Compositor to use a new gpu thread ✅
+- WebRTC PipeWire support ✅
+- Native Client ✅
+- WebGL Developer Extensions ✅
+- WebGL Draft Extensions✅
+- Toggle hardware accelerated H.264 video encoding for Cast Streaming ✅
+- Toggle hardware accelerated VP8 video encoding for Cast Streaming ✅
+
+### Troubleshooting flatpaks
+
+If a flatpak is broken, revert versions using:
+```
+flatpak list
+flatpak remote-info --log flathub com.google.Chrome
+flatpak update --commit=<commit-of-working-version> com.google.Chrome
+```
+
+### To revert back to Silverblue
+
+```shell
+sudo rpm-ostree rebase fedora:fedora/40/x86_64/silverblue
+```
+
 
 ## ISO
 
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso). These ISOs cannot unfortunately be distributed on GitHub for free due to large sizes, so for public projects something else has to be used for hosting.
-
-## Verification
-
-These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
-
-```bash
-cosign verify --key cosign.pub ghcr.io/blue-build/legacy-template
-```
+If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso). 
