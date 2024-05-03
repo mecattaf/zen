@@ -203,6 +203,7 @@ modules:
   - system:
     enabled:
      - sddm.service
+     - tailscaled.service
     disabled:
      - rpm-ostree-countme.timer
         
