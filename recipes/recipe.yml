@@ -1,4 +1,4 @@
-name: next
+name: nextt
 description: Fedora Atomic spin for Asus Zenbook Duo
 
 base-image: ghcr.io/ublue-os/base-main
