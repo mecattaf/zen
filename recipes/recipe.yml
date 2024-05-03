@@ -168,6 +168,12 @@ modules:
       - gvfs-mtp
       - bolt
       - fprintd-pam
+      - NetworkManager-openvpn
+      - NetworkManager-openconnect
+      - paper-icon-theme
+      - breeze-icon-theme
+      - papirus-icon-theme
+      - pamixer
 
     remove:
       - firefox
@@ -202,13 +208,17 @@ modules:
   - type: systemd
   - system:
     enabled:
-     - sddm.service
+     - sddm-boot.service
      - tailscaled.service
     disabled:
      - rpm-ostree-countme.timer
         
-  #- type: script
-   # scripts:
+  - type: script
+    scripts:
+      - settheming.sh
+      - removeunprofessionalwallpapers.sh
+      - sethyprlandwaybarmodules.sh 
+      - setsddmtheming.sh
     #  - post-install.sh
 
   - type: signing 
