@@ -11,7 +11,7 @@ set -oue pipefail
 systemctl set-default graphical.target
 
 # tailscale
-systemctl enable tailscaled.service
+#systemctl enable tailscaled.service
 
 # create new username
 hostnamectl set-hostname dev
