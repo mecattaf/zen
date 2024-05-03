@@ -8,7 +8,7 @@
 set -oue pipefail
 
 # set sddm as default display-manager
-systemctl set-default graphical.target
+# systemctl set-default graphical.target
 
 # tailscale
 #systemctl enable tailscaled.service
