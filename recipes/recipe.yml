@@ -215,7 +215,7 @@ modules:
       - removeunprofessionalwallpapers.sh
       - sethyprlandwaybarmodules.sh 
       - setsddmtheming.sh
-    #  - post-install.sh
+      - post-install.sh
 
   - type: signing 
 
