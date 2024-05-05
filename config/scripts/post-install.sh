@@ -7,4 +7,4 @@ set -oue pipefail
 #ln -s /usr/bin/ld.bfd /usr/local/bin/ld
 
 # emoji picker
-pip install emoji-fzf
+pip install --prefix=/usr/lib/python3.12/site-packages/ emoji-fzf
