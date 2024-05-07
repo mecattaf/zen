@@ -219,5 +219,12 @@ modules:
       - setsddmtheming.sh
       - post-install.sh
 
-  - type: signing 
+  - type: chezmoi
+    install_chezmoi: true 
+    repository: "https://github.com/mecattaf/dots-zen"
+    run_every: '1d' 
+    wait_after_boot: '5m' 
+    disable_init: false 
+    disable_update: false 
 
+  - type: signing
