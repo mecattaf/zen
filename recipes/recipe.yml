@@ -155,6 +155,7 @@ modules:
       - alsa-sof-firmware
       - glow
       - wf-recorder
+      - wshowkeys
       - yt-dlp
       - aria2
       - bibata-cursor-themes
