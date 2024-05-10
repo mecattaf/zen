@@ -172,6 +172,7 @@ modules:
       - NetworkManager-openvpn
       - NetworkManager-openconnect
       - pamixer
+      - wmctrl
       - libinput-gestures
 
     remove:
