@@ -145,6 +145,7 @@ modules:
       - NetworkManager-tui
       - xdg-desktop-portal
       - xdg-desktop-portal-wlr
+      - xdg-desktop-portal-gtk
       - stow
       - g++
       - mpd
