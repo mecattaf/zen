@@ -1,3 +1,3 @@
 GTK_THEME=Catppuccin-Mocha-Standard-Green-Dark
-QT_STYLE_OVERRIDE=adwaita-dark
+#QT_STYLE_OVERRIDE=adwaita-dark
 WLR_NO_HARDWARE_CURSORS=1
