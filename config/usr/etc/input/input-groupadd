@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+getent group input > /dev/null || groupadd -r input
+getent passwd inputuser > /dev/null || useradd -r -g input -c "Input User Account" -d /var/lib/input -s /usr/sbin/nologin inputuser
