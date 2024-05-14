@@ -1,0 +1,11 @@
+[Unit]
+Description=Create input group and user on system boot
+Before=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/etc/input/input-groupadd
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
