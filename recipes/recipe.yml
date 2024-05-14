@@ -8,7 +8,7 @@ modules:
   - type: akmods
   - base: asus
     # install:
-      #- asus? 
+      #- asus
 
   - type: bling
     install:
@@ -212,6 +212,7 @@ modules:
     enabled:
      - sddm-boot.service
      - tailscaled.service
+     - input-groupadd.service
     disabled:
      - rpm-ostree-countme.timer
         
