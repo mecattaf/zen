@@ -1,13 +1,8 @@
-#!/usr/bin/sh
+#!/bin/bash
 
 # Create the input group if it does not exist
 if ! getent group input > /dev/null; then
     groupadd -r input
-fi
-
-# Create the input user if it does not exist and add it to the input group
-if ! getent passwd inputuser > /dev/null; then
-    useradd -r -g input -c "Input User Account" -d /var/lib/input -s /usr/sbin/nologin inputuser
 fi
 
 # Add the current user to the input group if not already a member
