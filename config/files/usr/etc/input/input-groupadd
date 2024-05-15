@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Determine the intended user dynamically
-target_user=$(who | awk '{print $1}' | sort | uniq | grep -v 'root')
+# Determine the intended user from /etc/passwd
+target_user=$(awk -F: '$3>=1000 && $3<65534 {print $1; exit}' /etc/passwd)
+
 
 # Exit if no valid user is found
 if [ -z "$target_user" ]; then
