@@ -1,6 +1,7 @@
 [Unit]
 Description=Create input group and user on system boot
 Before=graphical.target
+After=network.target
 
 [Service]
 Type=oneshot
