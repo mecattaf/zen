@@ -5,7 +5,10 @@ if ! getent group input > /dev/null; then
     groupadd -r input
 fi
 
+# Ensure the group creation is complete
+sleep 1
+
 # Add the current user to the input group if not already a member
 if ! id -nG "$USER" | grep -qw "input"; then
-    gpasswd -a "$USER" input
+    usermod -aG input "$USER"
 fi
