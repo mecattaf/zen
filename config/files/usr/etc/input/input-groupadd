@@ -1,14 +1,28 @@
 #!/bin/bash
 
+# Determine the intended user dynamically
+target_user=$(who | awk '{print $1}' | sort | uniq | grep -v 'root')
+
+# Exit if no valid user is found
+if [ -z "$target_user" ]; then
+    echo "No valid non-root user found."
+    exit 1
+fi
+
 # Create the input group if it does not exist
 if ! getent group input > /dev/null; then
     groupadd -r input
+    if [ $? -ne 0 ]; then
+        echo "Failed to create group 'input'."
+        exit 1
+    fi
 fi
 
-# Ensure the group creation is complete
-sleep 1
-
-# Add the current user to the input group if not already a member
-if ! id -nG "$USER" | grep -qw "input"; then
-    usermod -aG input "$USER"
+# Add the determined user to the input group if not already a member
+if ! id -nG "$target_user" | grep -qw "input"; then
+    usermod -aG input "$target_user"
+    if [ $? -ne 0 ]; then
+        echo "Failed to add user '$target_user' to group 'input'."
+        exit 1
+    fi
 fi
