@@ -212,9 +212,11 @@ modules:
     enabled:
      - sddm-boot.service
      - tailscaled.service
-     - input-groupadd.service
     disabled:
      - rpm-ostree-countme.timer
+  - user:
+    enabled:
+     - input-groupadd.service
         
   - type: script
     scripts:
