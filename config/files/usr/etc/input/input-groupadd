@@ -30,7 +30,9 @@ LOGFILE="/tmp/input-groupadd.log"
 
     # Add the determined user to the input group if not already a member
     if ! id -nG "$target_user" | grep -qw "input"; then
-        usermod -aG input "$target_user"
+        echo "Adding user '$target_user' to group 'input'"
+        #  usermod -aG input "$target_user"
+        gpasswd -a "$target_user" input
         if [ $? -ne 0 ]; then
             echo "Failed to add user '$target_user' to group 'input'."
             exit 1
