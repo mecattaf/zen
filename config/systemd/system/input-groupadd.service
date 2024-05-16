@@ -1,7 +1,6 @@
 [Unit]
 Description=Create input group on system boot
-Before=graphical.target
-After=network.target
+Before=libinput-gestures.service
 
 [Service]
 Type=oneshot
