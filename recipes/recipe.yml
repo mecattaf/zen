@@ -208,13 +208,13 @@ modules:
           #- org.freedesktop.Platform.GStreamer.gstreamer-vaapi
       
   - type: systemd
-  - system:
-    enabled:
-     - sddm-boot.service
-     - input-groupadd.service
-     - tailscaled.service
-    disabled:
-     - rpm-ostree-countme.timer
+    system:
+      enabled:
+        - sddm-boot.service
+        - input-groupadd.service
+        - tailscaled.service
+      disabled:
+        - rpm-ostree-countme.timer
         
   - type: script
     scripts:
