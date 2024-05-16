@@ -1,41 +1,50 @@
 #!/bin/bash
 
-LOGFILE="/tmp/input-groupadd.log"
+# Check if the input group exists; if not, create it
+getent group input > /dev/null || groupadd -r input
 
-{
-    echo "Script started at $(date)"
+# Add the dev user to the input group if not already a member
+if ! id -nG dev | grep -qw "input"; then
+    usermod -aG input dev
+fi
 
-    # Determine the intended user from /etc/passwd
-    target_user=$(awk -F: '$3>=1000 && $3<65534 {print $1; exit}' /etc/passwd)
-    echo "Target user: $target_user"
+
+#LOGFILE="/tmp/input-groupadd.log"
+
+#{
+#    echo "Script started at $(date)"
+
+#    # Determine the intended user from /etc/passwd
+#    target_user=$(awk -F: '$3>=1000 && $3<65534 {print $1; exit}' /etc/passwd)
+#    echo "Target user: $target_user"
 
     # Exit if no valid user is found
-    if [ -z "$target_user" ]; then
-        echo "No valid non-root user found."
-        exit 1
-    fi
+#    if [ -z "$target_user" ]; then
+#        echo "No valid non-root user found."
+#        exit 1
+#    fi
 
-    # Check if the input group exists
-    if getent group input > /dev/null; then
-        echo "Group 'input' already exists."
-    else
-        echo "Creating group 'input'"
-        groupadd -r input
-        if [ $? -ne 0 ]; then
-            echo "Failed to create group 'input'."
-            exit 1
-        fi
-    fi
+#    # Check if the input group exists
+#    if getent group input > /dev/null; then
+#        echo "Group 'input' already exists."
+#    else
+#        echo "Creating group 'input'"
+ #       groupadd -r input
+#        if [ $? -ne 0 ]; then
+#            echo "Failed to create group 'input'."
+#            exit 1
+#        fi
+#    fi
 
     # Add the user to the input group
-    echo "Adding user '$target_user' to group 'input'"
-    usermod -aG input "$target_user"
-    if [ $? -ne 0 ]; then
-        echo "Failed to add user '$target_user' to group 'input'."
-        exit 1
-    else
-        echo "User '$target_user' added to group 'input' successfully."
-    fi
+#    echo "Adding user '$target_user' to group 'input'"
+#    usermod -aG input "$target_user"
+#    if [ $? -ne 0 ]; then
+#        echo "Failed to add user '$target_user' to group 'input'."
+#        exit 1
+#    else
+#        echo "User '$target_user' added to group 'input' successfully."
+#    fi
 
-    echo "Script finished at $(date)"
-} >> $LOGFILE 2>&1
+#    echo "Script finished at $(date)"
+#} >> $LOGFILE 2>&1
