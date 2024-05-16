@@ -11,7 +11,7 @@ fi
 
 #LOGFILE="/tmp/input-groupadd.log"
 
-#{
+# {
 #    echo "Script started at $(date)"
 
 #    # Determine the intended user from /etc/passwd
@@ -47,4 +47,4 @@ fi
 #    fi
 
 #    echo "Script finished at $(date)"
-#} >> $LOGFILE 2>&1
+# } >> $LOGFILE 2>&1
