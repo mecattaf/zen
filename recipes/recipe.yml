@@ -174,7 +174,7 @@ modules:
       - NetworkManager-openconnect
       - pamixer
       - wmctrl
-      - wtype
+      - ydotool
       - libinput-gestures
 
     remove:
