@@ -190,6 +190,7 @@ modules:
   - type: fonts
     nerd-fonts:
       - JetBrainsMono
+      - Iosevka
       - NerdFontsSymbolsOnly
 
 
