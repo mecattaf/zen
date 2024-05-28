@@ -237,4 +237,10 @@ modules:
     disable_init: false 
     disable_update: false 
 
+  #Custom until merged
+  - type: brew
+    packages:
+    nofile-limits: true  # default: false
+    brew-analytics: true # default: true
+
   - type: signing
