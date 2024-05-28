@@ -138,6 +138,8 @@ modules:
       - ripgrep
       - pandoc
       - azote
+      - wlogout
+      - rofimoji
       - nwg-look
       - zathura
       - zathura-pdf-poppler
