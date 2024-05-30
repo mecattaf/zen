@@ -24,7 +24,7 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
 ### Manual Steps
 
-- Authenticate to git
+- Copy over git credentials and authenticate to gh with `gh auth login`
 - Authenticate to google chrome
 - Authenticate to tailscale with `tailscale login`
 
