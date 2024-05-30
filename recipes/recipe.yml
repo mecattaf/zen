@@ -6,7 +6,7 @@ image-version: 40
 
 modules:
   - type: akmods
-  - base: asus
+    base: asus
     # install:
       #- asus
 
