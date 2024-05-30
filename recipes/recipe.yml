@@ -238,8 +238,8 @@ modules:
 
   #Custom until merged
   - type: brew
-    packages:
-    nofile-limits: true  # default: false
-    brew-analytics: true # default: true
+  #packages:
+  #nofile-limits: true  # default: false
+  #brew-analytics: true # default: true
 
   - type: signing
