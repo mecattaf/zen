@@ -237,7 +237,7 @@ modules:
     disable_update: false 
 
   #Custom until merged
-  - type: brew
+  #- type: brew
   #packages:
   #nofile-limits: true  # default: false
   #brew-analytics: true # default: true
