@@ -22,39 +22,48 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
   systemctl reboot
   ```
+### Manual Steps
+
+- Authenticate to git
+- Authenticate to google chrome
+- Authenticate to tailscale with `tailscale login`
 
 ### Google Chrome
 
 1) In `chrome://settings`:
 
-System
+| System                                                | Value  |
+|-------------------------------------------------------|--------|
+| Continue running background apps when Google Chrome is closed | ❌ |
+| Use hardware acceleration when available              | ✅      |
 
-- Continue running background apps when Google Chrome is closed ❌
-- Use hardware acceleration when available ✅
-
-Appearance
-
-- Theme: `All Black - Full Dark Theme/Black Theme`
-- Mode: `Dark`
-- Show home button ❌
-- Show bookmarks bar ❌
-- Show images on tab hover preview cards ✅
-- Use system title bars and borders ✅
+| Appearance                                            | Value  |
+|-------------------------------------------------------|--------|
+|
+| Theme                                                 | All Black - Full Dark Theme/Black Theme |
+| Mode                                                  | Dark   |
+| Show home button                                      | ❌      |
+| Show bookmarks bar                                    | ❌      |
+| Show images on tab hover preview cards                | ✅      |
+| Use system title bars and borders                     | ✅      |
 
 2) In`chrome://flags`:
 
-- Preferred Ozone Platform: `Wayland`
-- Chrome Refresh 2023 ✅
-- Realbox Chrome Refresh 2023 ✅
-- Chrome WebUI Refresh 2023 ✅
-- Chrome Refresh 2023 New Tab Button ✅
-- Enable Display Compositor to use a new gpu thread ✅
-- WebRTC PipeWire support ✅
-- Native Client ✅
-- WebGL Developer Extensions ✅
-- WebGL Draft Extensions✅
-- Toggle hardware accelerated H.264 video encoding for Cast Streaming ✅
-- Toggle hardware accelerated VP8 video encoding for Cast Streaming ✅
+| Flag                                                  | Status |
+|-------------------------------------------------------|--------|
+| Preferred Ozone Platform                              | Wayland |
+| Chrome Refresh 2023                                   | ✅      |
+| Realbox Chrome Refresh 2023                           | ✅      |
+| Chrome WebUI Refresh 2023                             | ✅      |
+| Chrome Refresh 2023 New Tab Button                    | ✅      |
+| Enable Display Compositor to use a new gpu thread     | ✅      |
+| WebRTC PipeWire support                               | ✅      |
+| Native Client                                         | ✅      |
+| WebGL Developer Extensions                            | ✅      |
+| WebGL Draft Extensions                                | ✅      |
+| Toggle hardware accelerated H.264 video encoding for Cast Streaming | ✅ |
+| Toggle hardware accelerated VP8 video encoding for Cast Streaming  | ✅ |
+
 
 ### Troubleshooting flatpaks
 
