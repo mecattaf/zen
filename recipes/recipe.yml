@@ -177,7 +177,6 @@ modules:
       - wmctrl
       - ydotool
       - libinput-gestures
-      - gh
 
     remove:
       - firefox
