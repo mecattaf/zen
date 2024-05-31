@@ -25,9 +25,9 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/tokariew/glow/repo/fedora-%OS_VERSION%/tokariew-glow-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/peterwu/rendezvous/repo/fedora-%OS_VERSION%/peterwu-rendezvous-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/atim/himalaya/repo/fedora-%OS_VERSION%/atim-himalaya-fedora-%OS_VERSION%.repo 
       - https://copr.fedorainfracloud.org/coprs/mecattaf/catppuccin-theme/repo/fedora-%OS_VERSION%/mecattaf-catppuccin-theme-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/mecattaf/libinput-gestures/repo/fedora-%OS_VERSION%/mecattaf-libinput-gestures-fedora-%OS_VERSION%.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
     install:
@@ -128,7 +128,8 @@ modules:
       - alacritty
       - kitty
       - kitty-terminfo
-      - clipman
+      - cliphist
+      - nwg-clipman
       - gammastep
       - remmina
       - wayvnc
@@ -176,7 +177,6 @@ modules:
       - pamixer
       - wmctrl
       - ydotool
-      - libinput-gestures
 
     remove:
       - firefox
