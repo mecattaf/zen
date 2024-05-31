@@ -47,6 +47,12 @@ To rebase an existing atomic Fedora installation to the latest build:
 | Show images on tab hover preview cards                | ✅      |
 | Use system title bars and borders                     | ✅      |
 
+| System                                                | Value  |
+|-------------------------------------------------------|--------|
+|
+| Continue running background apps when Google Chrome is closed    | ❌ |
+| Use graphics acceleration when available                         | ✅ |
+
 2) In`chrome://flags`:
 
 | Flag                                                  | Status |
