@@ -21,7 +21,7 @@ modules:
 
   - type: rpm-ostree
     repos:
-      - https://copr.fedorainfracloud.org/coprs/swayfx/swayfx/repo/fedora-%FEDORA_VERSION%/swayfx-swayfx-fedora-%FEDORA_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/swayfx/swayfx/repo/fedora-%OS_VERSION%/swayfx-swayfx-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/tokariew/glow/repo/fedora-%OS_VERSION%/tokariew-glow-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
@@ -40,11 +40,7 @@ modules:
       - podman-compose
       - podman-tui
       - podmansh
-        #hy
-      - hyprland
       - swayfx
-        #hy
-      - xdg-desktop-portal-hyprland
       - waybar
       - xorg-x11-server-Xwayland
       - xdg-user-dirs
@@ -136,8 +132,6 @@ modules:
       - kitty-terminfo
       - cliphist
       - nwg-clipman
-        # remove
-      - gammastep
       - remmina
       - wayvnc
       - neovim
@@ -185,6 +179,9 @@ modules:
       - wmctrl
       - ydotool
       - wl-gammarelay-rs
+        #- hyprland
+        #- xdg-desktop-portal-hyprland
+        #- gammastep
 
     remove:
       - firefox
