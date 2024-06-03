@@ -222,7 +222,6 @@ modules:
     system:
       enabled:
         - sddm-boot.service
-        - input-groupadd.service
         - tailscaled.service
       disabled:
         - rpm-ostree-countme.timer
