@@ -225,9 +225,6 @@ modules:
         
   - type: script
     scripts:
-      - settheming.sh
-      - removeunprofessionalwallpapers.sh
-      - sethyprlandwaybarmodules.sh 
       - setsddmtheming.sh
       - post-install.sh
 
