@@ -111,7 +111,6 @@ modules:
       - slurp
       - grim
       - wlr-randr
-      - wlsunset
       - kanshi
       - adwaita-qt5
       - fontawesome-fonts-all
@@ -182,6 +181,8 @@ modules:
         #- hyprland
         #- xdg-desktop-portal-hyprland
         #- gammastep
+        #- wlsunset
+
 
     remove:
       - firefox
