@@ -18,6 +18,7 @@ modules:
   - type: files
     files:
       - usr: /usr 
+      - etc: /etc
 
   - type: rpm-ostree
     repos:
@@ -219,10 +220,10 @@ modules:
         - tailscaled.service
       disabled:
         - rpm-ostree-countme.timer
-    user:
-      enabled:
-        - ollama.service
-        - ollama-web.service
+        #user:
+        # enabled:
+        #- ollama.service
+        #- ollama-web.service
         
   - type: script
     scripts:
