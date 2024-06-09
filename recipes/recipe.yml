@@ -219,6 +219,10 @@ modules:
         - tailscaled.service
       disabled:
         - rpm-ostree-countme.timer
+    user:
+      enabled:
+        - ollama.service
+        - ollama-web.service
         
   - type: script
     scripts:
