@@ -178,7 +178,6 @@ modules:
       - ydotool
       - wl-gammarelay-rs
       - python-autotiling
-      - https://github.com/Figma-Linux/figma-linux/releases/download/v0.11.4/figma-linux_0.11.4_linux_aarch64.rpm
 
     remove:
       - firefox
@@ -202,6 +201,7 @@ modules:
       install:
         - com.google.Chrome
         - org.videolan.VLC
+        - md.obsidian.Obsidian
         - org.desmume.DeSmuME
         - io.mgba.mGBA
         - org.ppsspp.PPSSPP
@@ -223,6 +223,7 @@ modules:
   - type: script
     scripts:
       - setsddmtheming.sh
+      - figma.sh
       - post-install.sh
 
   - type: chezmoi
