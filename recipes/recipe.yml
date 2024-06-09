@@ -28,7 +28,6 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/tofik/sway-tools/repo/fedora-%OS_VERSION%/tofik-sway-tools-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/peterwu/rendezvous/repo/fedora-%OS_VERSION%/peterwu-rendezvous-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/atim/himalaya/repo/fedora-%OS_VERSION%/atim-himalaya-fedora-%OS_VERSION%.repo 
       - https://copr.fedorainfracloud.org/coprs/mecattaf/catppuccin-theme/repo/fedora-%OS_VERSION%/mecattaf-catppuccin-theme-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/mecattaf/wl-gammarelay-rs/repo/fedora-%OS_VERSION%/mecattaf-wl-gammarelay-rs-fedora-%OS_VERSION%.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
@@ -166,7 +165,6 @@ modules:
       - gsettings-desktop-schemas
       - tailscale
       - catppuccin-theme
-      - himalaya
       - mesa-dri-drivers
       - mesa-vulkan-drivers
       - gvfs
@@ -180,11 +178,7 @@ modules:
       - ydotool
       - wl-gammarelay-rs
       - python-autotiling
-        #- hyprland
-        #- xdg-desktop-portal-hyprland
-        #- gammastep
-        #- wlsunset
-
+      - https://github.com/Figma-Linux/figma-linux/releases/download/v0.11.4/figma-linux_0.11.4_linux_aarch64.rpm
 
     remove:
       - firefox
