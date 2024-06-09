@@ -178,7 +178,7 @@ modules:
       - ydotool
       - wl-gammarelay-rs
       - python-autotiling
-      - https://github.com/Figma-Linux/figma-linux/releases/download/v0.11.4/figma-linux_0.11.4_linux_aarch64.rpm
+      #- https://github.com/Figma-Linux/figma-linux/releases/download/v0.11.4/figma-linux_0.11.4_linux_aarch64.rpm
 
     remove:
       - firefox
