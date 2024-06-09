@@ -223,7 +223,6 @@ modules:
   - type: script
     scripts:
       - setsddmtheming.sh
-      - figma.sh
       - post-install.sh
 
   - type: chezmoi
