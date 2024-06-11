@@ -1,0 +1,21 @@
+[Unit]
+Description=An Jan AI App CPU/FS container
+After=network-online.target
+
+[Container]
+Image=ghcr.io/janhq/jan-server:dev-cpu-latest
+AutoUpdate=registry
+ContainerName=jan_ai_app_cpu_fs
+Environment=API_BASE_URL=http://localhost:1337
+Volume=app_data_jan_ai_cpu_fs:/app/server/build/jan
+Network=vpcbr.network
+PublishPort=3000:3000
+PublishPort=1337:1337
+PublishPort=3928:3928
+SecurityLabelDisable=true
+
+[Service]
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target

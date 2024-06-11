@@ -1,0 +1,19 @@
+[Unit]
+Description=A minio server container for local S3 compatible storage
+After=network-online.target
+
+[Container]
+Image=minio/minio:latest
+AutoUpdate=registry
+ContainerName=minio
+Environment=MINIO_ROOT_USER=admin
+Environment=MINIO_ROOT_PASSWORD=admin
+Command=server --console-address ":9001"
+Volume=minio.volume:/data:Z
+Network=vpcbr.network
+
+[Service]
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target
