@@ -156,6 +156,7 @@ modules:
       - mpdris2
       - ncmpcpp
       - sox
+      - lame
       - alsa-sof-firmware
       - glow
       - wf-recorder
