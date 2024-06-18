@@ -39,7 +39,6 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 | Appearance                                            | Value  |
 |-------------------------------------------------------|--------|
-|
 | Theme                                                 | All Black - Full Dark Theme/Black Theme |
 | Mode                                                  | Dark   |
 | Show home button                                      | ❌      |
@@ -49,7 +48,6 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 | System                                                | Value  |
 |-------------------------------------------------------|--------|
-|
 | Continue running background apps when Google Chrome is closed    | ❌ |
 | Use graphics acceleration when available                         | ✅ |
 
