@@ -78,6 +78,24 @@ flatpak remote-info --log flathub com.google.Chrome
 flatpak update --commit=<commit-of-working-version> com.google.Chrome
 ```
 
+### Rolling back to previous versions
+
+View the list of available builds by entering:
+```
+skopeo list-tags docker://ghcr.io/ublue-os/bazzite | grep -- "-stable-" | sort -rV
+```
+
+Rebasing to a specific build requires users to open a host terminal and enter:
+```
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/IMAGE-NAME:VERSION-YEARMONTHDAY
+```
+
+Example:
+```
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ublue-os/bazzite-deck:39-20240113
+```
+For the Jan. 13th 2024 bazzite-deck (Fedora 39) build.
+
 ### To revert back to Silverblue
 
 ```shell
