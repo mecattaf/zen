@@ -14,7 +14,6 @@ stages:
           - wget https://gist.githubusercontent.com/mfenniak/53a8cae856c66ec1f0a100703aab3690/raw/zenbook-i915-revert-93cbc1accbcec2740231755774420934658e2b18.patch -O /tmp/zenbook-i915-revert.patch
           - fedpkg clone --anonymous kernel
           - cd kernel
-          - fedpkg switch-branch f40  # Use f40 for Fedora 40
           - git apply /tmp/zenbook-i915-revert.patch
           - fedpkg local
           - mkdir -p /out/kernel
