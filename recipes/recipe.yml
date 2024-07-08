@@ -4,7 +4,35 @@ description: Fedora Atomic spin for Asus Zenbook Duo
 base-image: ghcr.io/ublue-os/base-main
 image-version: 40
 
+stages:
+  - name: kernel-build
+    from: fedora:latest
+    modules:
+      - type: script
+        snippets:
+          - dnf install -y git wget rpm-build ncurses-devel make gcc bc bison flex elfutils-libelf-devel openssl-devel fedpkg
+          - wget https://gist.githubusercontent.com/mfenniak/53a8cae856c66ec1f0a100703aab3690/raw/zenbook-i915-revert-93cbc1accbcec2740231755774420934658e2b18.patch -O /tmp/zenbook-i915-revert.patch
+          - fedpkg clone --anonymous kernel
+          - cd kernel
+          - fedpkg switch-branch f40  # Use f40 for Fedora 40
+          - git apply /tmp/zenbook-i915-revert.patch
+          - fedpkg local
+          - mkdir -p /out/kernel
+          - cp x86_64/*.rpm /out/kernel/
+  
 modules:
+  # Custom Kernel 
+  - type: copy
+    from: kernel-build
+    src: /out/kernel/kernel-*.rpm
+    dest: /tmp/
+
+  - type: script
+    snippets:
+      - rpm-ostree override replace /tmp/kernel-*.rpm
+      - rm /tmp/kernel-*.rpm
+  # End custom kernel
+
   - type: akmods
     base: asus
     # install:
