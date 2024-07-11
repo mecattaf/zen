@@ -2,6 +2,11 @@
 
 set -oue pipefail
 
+# inspired by: https://github.com/antuan1996/formile-cachyos-ublue
+
+echo 'Enable SElinux policy'
+setsebool -P domain_kernel_load_modules on
+
 echo 'fsync kernel override'
 rpm-ostree cliwrap install-to-root
 rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-fsync
