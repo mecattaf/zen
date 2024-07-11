@@ -189,13 +189,13 @@ modules:
       - toolbox
       - nvtop
 
-    replace:
-      - from-repo: https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-${OS_VERSION}/sentry-kernel-fsync-fedora-${OS_VERSION}.repo
-        packages:
-          - kernel
-          - kernel-core-*
-          - kernel-modules-*
-          - kernel-uki-virt-*
+      #    replace:
+      #- from-repo: https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-${OS_VERSION}/sentry-kernel-fsync-fedora-${OS_VERSION}.repo
+      #  packages:
+      #    - kernel
+      #    - kernel-core-*
+      #    - kernel-modules-*
+      #    - kernel-uki-virt-*
 
   - type: fonts
     nerd-fonts:
@@ -239,6 +239,7 @@ modules:
     scripts:
       - setsddmtheming.sh
       - post-install.sh
+      - fsync-kernel-override.sh
 
   - type: chezmoi
     install_chezmoi: true 
