@@ -99,6 +99,7 @@ modules:
       - brightnessctl
       - polkit
       - lxpolkit
+      - lxqt-policykit
       - dbus-tools
       - dbus-daemon
       - wl-clipboard
@@ -133,6 +134,7 @@ modules:
       - kitty-terminfo
       - cliphist
       - nwg-clipman
+      - eww-git
       - remmina
       - wayvnc
       - neovim
