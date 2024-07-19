@@ -134,7 +134,6 @@ modules:
       - kitty-terminfo
       - cliphist
       - nwg-clipman
-      - eww-git
       - remmina
       - wayvnc
       - neovim
