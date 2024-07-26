@@ -17,8 +17,8 @@ modules:
 
   - type: files
     files:
-      - usr: /usr 
-        #- etc: /etc
+      - source: system
+        destination: /
 
   - type: rpm-ostree
     repos:
