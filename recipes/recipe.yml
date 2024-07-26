@@ -37,6 +37,7 @@ modules:
     install:
       - gcc-c++
       - gcc
+      - g++
       - make
       - mesa-libGLU
       - podman-compose
@@ -151,8 +152,6 @@ modules:
       - xdg-desktop-portal
       - xdg-desktop-portal-wlr
       - xdg-desktop-portal-gtk
-      - stow
-      - g++
       - mpd
       - mpc
       - mpdris2
@@ -161,6 +160,7 @@ modules:
       - lame
       - alsa-sof-firmware
       - glow
+      - eza
       - https://github.com/charmbracelet/mods/releases/download/v1.4.1/mods-1.4.1-1.x86_64.rpm
       - wf-recorder
       - wshowkeys
