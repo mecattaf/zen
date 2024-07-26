@@ -160,8 +160,8 @@ modules:
       - lame
       - alsa-sof-firmware
       - glow
+      - mods
       - eza
-      - https://github.com/charmbracelet/mods/releases/download/v1.4.1/mods-1.4.1-1.x86_64.rpm
       - wf-recorder
       - wshowkeys
       - yt-dlp
@@ -212,6 +212,8 @@ modules:
         - org.ppsspp.PPSSPP
         - com.hunterwittenborn.Celeste
         - it.mijorus.collector
+        - io.github.dvlv.boxbuddyrs
+        - it.mijorus.gearlever
         - com.obsproject.Studio
         - com.obsproject.Studio.Plugin.OBSVkCapture
           #- org.freedesktop.Platform.VulkanLayer.OBSVkCapture
