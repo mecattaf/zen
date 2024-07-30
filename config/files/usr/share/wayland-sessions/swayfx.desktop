@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Custom Sway
-Comment=An i3-compatible Wayland compositor with custom environment
-Exec=/usr/etc/swayfx/swayrun
-Type=Application
-DesktopNames=CustomSway
