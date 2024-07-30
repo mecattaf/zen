@@ -231,7 +231,6 @@ modules:
       - setsddmtheming.sh
       - post-install.sh
       - fsync-kernel-override.sh
-      - figma.sh
 
   - type: chezmoi
     install_chezmoi: true 
