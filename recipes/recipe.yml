@@ -10,10 +10,6 @@ modules:
     # install:
       #- asus
 
-  - type: bling
-    install:
-      - laptop
-
   - type: files
     files:
       - source: system
