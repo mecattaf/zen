@@ -201,10 +201,8 @@ modules:
       install:
         - com.google.Chrome
         - org.videolan.VLC
-        - md.obsidian.Obsidian
         - org.desmume.DeSmuME
         - io.mgba.mGBA
-        - org.ppsspp.PPSSPP
         - com.hunterwittenborn.Celeste
         - it.mijorus.collector
         - io.github.dvlv.boxbuddyrs
