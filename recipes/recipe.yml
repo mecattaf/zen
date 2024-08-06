@@ -42,8 +42,6 @@ modules:
       - waybar
       - xorg-x11-server-Xwayland
       - xdg-user-dirs
-      - android-tools
-      - android-file-transfer
       - swaybg
       - swayidle
       - swaylock
@@ -60,7 +58,6 @@ modules:
       - thunar-archive-plugin
       - thunar-volman
       - imv
-      - kvantum
       - gnome-disk-utility
       - mako
       - xarchiver
@@ -76,7 +73,6 @@ modules:
       - qt5-qtquickcontrols2
       - qt5-qtsvg
       - grimshot
-      - wdisplays
       - gnome-keyring
       - overpass-fonts
       - overpass-mono-fonts
