@@ -7,4 +7,3 @@ curl -Lo /tmp/rmpc.tar.gz https://github.com/mierak/rmpc/releases/download/v0.2.
 mkdir -p /tmp/rmpc
 tar -xvf /tmp/rmpc.tar.gz -C /tmp/rmpc
 cp /tmp/rmpc/rmpc /usr/local/bin
-chmod +x /usr/local/bin/rmpc
