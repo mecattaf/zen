@@ -43,7 +43,7 @@ flatpak update --commit=<commit-of-working-version> com.google.Chrome
 
 View the list of available builds by entering:
 ```
-skopeo list-tags docker://ghcr.io/ublue-os/bazzite | grep -- "-stable-" | sort -rV
+skopeo list-tags docker://ghcr.io/mecattaf/zen | sort -rV
 ```
 
 Rebasing to a specific build requires users to open a host terminal and enter:
