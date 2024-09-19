@@ -30,10 +30,10 @@ modules:
       #- https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-%OS_VERSION%/sentry-kernel-fsync-fedora-%OS_VERSION%.repo
 
     install:
-      #- gcc-c++
-      #- gcc
-      #- g++
-      #- make
+      - gcc-c++
+      - gcc
+      - g++
+      - make
       - mesa-libGLU
       - podman-compose
       - podman-tui
@@ -205,6 +205,7 @@ modules:
         - it.mijorus.gearlever
         - com.obsproject.Studio
         - com.obsproject.Studio.Plugin.OBSVkCapture
+        - io.bassi.Amberol
           #- org.freedesktop.Platform.VulkanLayer.OBSVkCapture
           #- org.freedesktop.Platform.GStreamer.gstreamer-vaapi
       
