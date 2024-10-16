@@ -138,10 +138,10 @@ modules:
       - xdg-desktop-portal
       - xdg-desktop-portal-wlr
       - xdg-desktop-portal-gtk
-      - mpd
-      - mpc
+      #- mpd
+      #- mpc
+      #- ncmpcpp
       - mpdris2
-      - ncmpcpp
       - sox
       - lame
       - alsa-sof-firmware
