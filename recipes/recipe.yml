@@ -169,6 +169,8 @@ modules:
       - ydotool
       - wl-gammarelay-rs
       - python-autotiling
+      # Intel ai basekit from https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html?operatingsystem=linux&linux-install-type=dnf 
+  - intel-basekit
 
     remove:
       - firefox
