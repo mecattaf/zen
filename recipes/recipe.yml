@@ -23,6 +23,7 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/mecattaf/wl-gammarelay-rs/repo/fedora-%OS_VERSION%/mecattaf-wl-gammarelay-rs-fedora-%OS_VERSION%.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       #- https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-%OS_VERSION%/sentry-kernel-fsync-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/xanderlent/intel-npu-driver/packages/
 
     install:
       - gcc-c++
@@ -170,7 +171,16 @@ modules:
       - wl-gammarelay-rs
       - python-autotiling
       # Intel ai basekit from https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html?operatingsystem=linux&linux-install-type=dnf 
+      # from yum.d
       - intel-basekit
+      # from last COPR
+      - intel-npu-level-zero
+      # additional tools?
+      - intel-opencl
+      - intel-media-driver
+      - libmfx
+      - hwinfo
+      - clinfo
 
     remove:
       - firefox
