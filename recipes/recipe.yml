@@ -23,7 +23,9 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/mecattaf/wl-gammarelay-rs/repo/fedora-%OS_VERSION%/mecattaf-wl-gammarelay-rs-fedora-%OS_VERSION%.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       #- https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-%OS_VERSION%/sentry-kernel-fsync-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/xanderlent/intel-npu-driver/packages/
+      - https://copr.fedorainfracloud.org/coprs/xanderlent/intel-npu-driver/repo/fedora-%OS_VERSION%/xanderlent-intel-npu-driver-fedora-%OS_VERSION%.repo
+
+    
 
     install:
       - gcc-c++
