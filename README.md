@@ -25,9 +25,9 @@ To rebase an existing atomic Fedora installation to the latest build:
 ### Manual Steps
 
 - Copy over git credentials
-- Authenticate to google chrome and follow through [docs/chrome.md]
+- Authenticate to google chrome and follow through [/docs/chrome.md]
 - Authenticate to tailscale with `tailscale login`
-- Authenticate to thunderbird and follow through [docs/thunderbird.md]
+- Manually install `brew` packages specifically ollama, and load desired ollama models
 
 
 ### Troubleshooting flatpaks
