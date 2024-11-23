@@ -43,7 +43,7 @@ modules:
       - tuned
       - tuned-utils
       - tuned-switcher
-      - polkit-gnome
+      - mate-polkit # replaces polkit-gnome
       - libseat
       - network-manager-applet
       - system-config-printer
