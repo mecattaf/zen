@@ -31,6 +31,7 @@ modules:
       - podman-compose
       - podman-tui
       - podmansh
+      - docker-compose
       - sway
       - waybar
       - xorg-x11-server-Xwayland
@@ -42,7 +43,6 @@ modules:
       - tuned-utils
       - tuned-switcher
       - mate-polkit # replaces polkit-gnome
-      - libseat
       - network-manager-applet
       - system-config-printer
       - firewall-config
@@ -225,7 +225,6 @@ modules:
       - setsddmtheming.sh
       - post-install.sh
       #- fsync-kernel-override.sh
-      #- rmpc.sh
 
   - type: chezmoi
     install_chezmoi: true 
