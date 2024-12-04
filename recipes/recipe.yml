@@ -13,14 +13,12 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/tokariew/glow/repo/fedora-%OS_VERSION%/tokariew-glow-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/tofik/nwg-shell/repo/fedora-%OS_VERSION%/tofik-nwg-shell-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/tofik/sway-tools/repo/fedora-%OS_VERSION%/tofik-sway-tools-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/peterwu/rendezvous/repo/fedora-%OS_VERSION%/peterwu-rendezvous-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/mecattaf/catppuccin-theme/repo/fedora-%OS_VERSION%/mecattaf-catppuccin-theme-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/mecattaf/wl-gammarelay-rs/repo/fedora-%OS_VERSION%/mecattaf-wl-gammarelay-rs-fedora-%OS_VERSION%.repo
-      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
       #- https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-%OS_VERSION%/sentry-kernel-fsync-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/xanderlent/intel-npu-driver/repo/fedora-%OS_VERSION%/xanderlent-intel-npu-driver-fedora-%OS_VERSION%.repo
 
