@@ -11,6 +11,10 @@ Group=ollama
 Restart=always
 RestartSec=3
 Environment="PATH=/usr/bin:/bin"
+StateDirectory=ollama
+StateDirectoryMode=0755
+ConfigurationDirectory=ollama
+ConfigurationDirectoryMode=0755
 
 [Install]
 WantedBy=multi-user.target
