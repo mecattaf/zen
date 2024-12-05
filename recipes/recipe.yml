@@ -17,8 +17,8 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/tofik/sway-tools/repo/fedora-%OS_VERSION%/tofik-sway-tools-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/peterwu/rendezvous/repo/fedora-%OS_VERSION%/peterwu-rendezvous-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/mecattaf/catppuccin-theme/repo/fedora-%OS_VERSION%/mecattaf-catppuccin-theme-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/mecattaf/wl-gammarelay-rs/repo/fedora-%OS_VERSION%/mecattaf-wl-gammarelay-rs-fedora-%OS_VERSION%.repo
+      #      - https://copr.fedorainfracloud.org/coprs/mecattaf/catppuccin-theme/repo/fedora-%OS_VERSION%/mecattaf-catppuccin-theme-fedora-%OS_VERSION%.repo
+      #      - https://copr.fedorainfracloud.org/coprs/mecattaf/wl-gammarelay-rs/repo/fedora-%OS_VERSION%/mecattaf-wl-gammarelay-rs-fedora-%OS_VERSION%.repo
       #- https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-%OS_VERSION%/sentry-kernel-fsync-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/xanderlent/intel-npu-driver/repo/fedora-%OS_VERSION%/xanderlent-intel-npu-driver-fedora-%OS_VERSION%.repo
 
@@ -149,7 +149,7 @@ modules:
       - bibata-cursor-themes
       - gsettings-desktop-schemas
       - tailscale
-      - catppuccin-theme
+      #      - catppuccin-theme
       - mesa-dri-drivers
       - mesa-vulkan-drivers
       - gvfs
@@ -161,7 +161,7 @@ modules:
       - pamixer
       - wmctrl
       - ydotool
-      - wl-gammarelay-rs
+      #- wl-gammarelay-rs
       - python-autotiling
       # Intel ai basekit from https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html?operatingsystem=linux&linux-install-type=dnf 
       # from yum.d
@@ -182,11 +182,48 @@ modules:
       - nvtop
 
   - type: fonts
-    nerd-fonts:
-      - JetBrainsMono
-      - Iosevka
-      - NerdFontsSymbolsOnly
+    fonts:
+      nerd-fonts:
+        - DejaVuSansMono
+        - FiraCode
+        - Hack
+        - JetBrainsMono
+        - SourceCodePro
+        - Iosevka
+        - NerdFontsSymbolsOnly
 
+  - type: script
+    scripts:
+      - install-ollama.sh
+
+  - type: systemd
+    system:
+      enabled:
+        - sddm-boot.service
+        - tailscaled.service
+        - ollama-boot.service
+        - ollama.service
+      disabled:
+        - rpm-ostree-countme.timer
+        #user:
+        # enabled:
+        #- ollama.service
+        #- ollama-web.service
+        
+  - type: script
+    scripts:
+      - setsddmtheming.sh
+      - settheming.sh
+      - post-install.sh
+      #- fsync-kernel-override.sh
+
+  - type: chezmoi
+    install_chezmoi: true 
+    repository: "https://github.com/mecattaf/dots-zen"
+    run_every: '1d' 
+    wait_after_boot: '5m' 
+    disable_init: false 
+    disable_update: false 
 
   - type: default-flatpaks
     notify: true 
@@ -207,36 +244,9 @@ modules:
         - io.bassi.Amberol
           #- org.freedesktop.Platform.VulkanLayer.OBSVkCapture
           #- org.freedesktop.Platform.GStreamer.gstreamer-vaapi
-      
-  - type: systemd
-    system:
-      enabled:
-        - sddm-boot.service
-        - tailscaled.service
-      disabled:
-        - rpm-ostree-countme.timer
-        #user:
-        # enabled:
-        #- ollama.service
-        #- ollama-web.service
-        
-  - type: script
-    scripts:
-      - setsddmtheming.sh
-      - post-install.sh
-      #- fsync-kernel-override.sh
 
-  - type: chezmoi
-    install_chezmoi: true 
-    repository: "https://github.com/mecattaf/dots-zen"
-    run_every: '1d' 
-    wait_after_boot: '5m' 
-    disable_init: false 
-    disable_update: false 
-
-  - type: brew
-    # install ollama and marp?
-    nofile-limits: true
-    brew-analytics: false
+    #  - type: brew
+    #    nofile-limits: true
+    #    brew-analytics: false
 
   - type: signing
