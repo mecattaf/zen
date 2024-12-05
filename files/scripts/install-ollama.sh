@@ -10,57 +10,110 @@
 
 set -oue pipefail
 
-# Simple status and error reporting
-status() { echo ">>> $*" >&2; }
-error() { echo "ERROR: $*"; exit 1; }
+# Enhanced status and error reporting with timestamps
+status() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] >>> $*" >&2; }
+error() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] ERROR: $*"; exit 1; }
 
-# Create and manage temporary workspace
+# Check for required commands
+for cmd in curl tar install mkdir; do
+    if ! command -v "$cmd" >/dev/null 2>&1; then
+        error "Required command '$cmd' not found. Please install it first."
+    fi
+done
+
+# Create and manage temporary workspace with verbose logging
 TEMP_DIR=$(mktemp -d)
-cleanup() { rm -rf "$TEMP_DIR"; }
+status "Created temporary directory: $TEMP_DIR"
+cleanup() { 
+    status "Cleaning up temporary directory"
+    rm -rf "$TEMP_DIR"
+}
 trap cleanup EXIT
 
-# Check platform and architecture
-[ "$(uname -s)" = "Linux" ] || error 'This script is intended to run on Linux only.'
+# Verify we're on Linux
+if [ "$(uname -s)" != "Linux" ]; then
+    error 'This script is intended to run on Linux only.'
+fi
+
+# Check and verify architecture
 ARCH=$(uname -m)
+status "Detected architecture: $ARCH"
+
 case "$ARCH" in
-    x86_64) ARCH="amd64" ;;
-    *) error "This script only supports x86_64 architecture." ;;
+    x86_64)
+        ARCH="amd64"
+        status "Converting architecture name to: $ARCH"
+        ;;
+    *)
+        error "This script only supports x86_64 architecture. Detected: $ARCH"
+        ;;
 esac
 
-# Version parameter handling from original script
+# Version parameter handling
 VER_PARAM="${OLLAMA_VERSION:+?version=$OLLAMA_VERSION}"
+if [ -n "${OLLAMA_VERSION:-}" ]; then
+    status "Using specified Ollama version: $OLLAMA_VERSION"
+else
+    status "No specific version specified, using latest"
+fi
 
-# Set installation directory - using /usr/bin for atomic system compatibility
+# Set installation directory
 BINDIR="/usr/bin"
+status "Target installation directory: $BINDIR"
 
-# Install binary
-status "Installing ollama to $BINDIR"
-install -o0 -g0 -m755 -d $BINDIR
+# Create installation directory with error checking
+status "Creating installation directory"
+if ! install -o0 -g0 -m755 -d "$BINDIR"; then
+    error "Failed to create installation directory: $BINDIR"
+fi
 
-# Try bundle first, fallback to standalone binary if bundle fails
-if curl -I --silent --fail --location "https://ollama.com/download/ollama-linux-${ARCH}.tgz${VER_PARAM}" >/dev/null ; then
+# First attempt: Try downloading and extracting the bundle
+BUNDLE_URL="https://ollama.com/download/ollama-linux-${ARCH}.tgz${VER_PARAM}"
+status "Attempting to download bundle from: $BUNDLE_URL"
+
+if curl -I --silent --fail --location "$BUNDLE_URL" >/dev/null; then
     status "Downloading Linux ${ARCH} bundle"
-    curl --fail --show-error --location --progress-bar \
-        "https://ollama.com/download/ollama-linux-${ARCH}.tgz${VER_PARAM}" | \
-        tar -xzf - -C "$TEMP_DIR"
-        
-    if [ ! -f "$TEMP_DIR/ollama" ]; then
-        error "Ollama binary not found in extracted archive"
+    if ! curl --fail --show-error --location --progress-bar "$BUNDLE_URL" | tar -xvzf - -C "$TEMP_DIR"; then
+        error "Failed to download or extract bundle"
     fi
     
-    install -v -o0 -g0 -m755 "$TEMP_DIR/ollama" "$BINDIR/ollama"
-else
-    status "Downloading Linux ${ARCH} CLI"
-    curl --fail --show-error --location --progress-bar \
-        "https://ollama.com/download/ollama-linux-${ARCH}${VER_PARAM}" \
-        -o "$TEMP_DIR/ollama"
+    status "Listing contents of temporary directory:"
+    ls -la "$TEMP_DIR"
     
-    install -v -o0 -g0 -m755 "$TEMP_DIR/ollama" "$BINDIR/ollama"
+    if [ ! -f "$TEMP_DIR/ollama" ]; then
+        status "Bundle extraction didn't produce expected binary, falling back to direct binary download"
+        # Fallback to direct binary download
+        BINARY_URL="https://ollama.com/download/ollama-linux-${ARCH}${VER_PARAM}"
+        status "Downloading standalone binary from: $BINARY_URL"
+        if ! curl --fail --show-error --location --progress-bar "$BINARY_URL" -o "$TEMP_DIR/ollama"; then
+            error "Failed to download standalone binary"
+        fi
+    fi
+else
+    # Direct binary download if bundle is not available
+    BINARY_URL="https://ollama.com/download/ollama-linux-${ARCH}${VER_PARAM}"
+    status "Bundle not available, downloading standalone binary from: $BINARY_URL"
+    if ! curl --fail --show-error --location --progress-bar "$BINARY_URL" -o "$TEMP_DIR/ollama"; then
+        error "Failed to download standalone binary"
+    fi
 fi
 
-# Verify successful installation
+# Install the binary
+status "Installing ollama binary to $BINDIR"
+if ! install -v -o0 -g0 -m755 "$TEMP_DIR/ollama" "$BINDIR/ollama"; then
+    error "Failed to install ollama binary"
+fi
+
+# Verify installation
 if [ ! -x "$BINDIR/ollama" ]; then
-    error "Installation verification failed"
+    error "Installation verification failed - binary is not executable"
 fi
 
-status "Ollama installation complete"
+# Verify binary architecture
+BINARY_ARCH=$(file "$BINDIR/ollama" | grep -o "x86-64\|amd64" || echo "unknown")
+status "Installed binary architecture: $BINARY_ARCH"
+if [[ "$BINARY_ARCH" != "x86-64" && "$BINARY_ARCH" != "amd64" ]]; then
+    error "Installed binary architecture mismatch: expected x86-64/amd64, got $BINARY_ARCH"
+fi
+
+status "Ollama installation completed successfully"
