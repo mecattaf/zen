@@ -5,12 +5,12 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/ollama serve
+ExecStart=/usr/bin/ollama serve
 User=ollama
 Group=ollama
 Restart=always
 RestartSec=3
-Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="PATH=/usr/bin:/bin"
 
 [Install]
 WantedBy=multi-user.target

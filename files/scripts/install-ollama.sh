@@ -10,27 +10,14 @@
 
 set -oue pipefail
 
-# Keep the original script's status/error functions for consistent output
-red="$( (/usr/bin/tput bold || :; /usr/bin/tput setaf 1 || :) 2>&-)"
-plain="$( (/usr/bin/tput sgr0 || :) 2>&-)"
+# Simple status and error reporting
 status() { echo ">>> $*" >&2; }
-error() { echo "${red}ERROR:${plain} $*"; exit 1; }
+error() { echo "ERROR: $*"; exit 1; }
 
+# Create and manage temporary workspace
 TEMP_DIR=$(mktemp -d)
-cleanup() { rm -rf $TEMP_DIR; }
+cleanup() { rm -rf "$TEMP_DIR"; }
 trap cleanup EXIT
-
-# Utility functions from original script
-available() { command -v $1 >/dev/null; }
-require() {
-    local MISSING=''
-    for TOOL in $*; do
-        if ! available $TOOL; then
-            MISSING="$MISSING $TOOL"
-        fi
-    done
-    echo $MISSING
-}
 
 # Check platform and architecture
 [ "$(uname -s)" = "Linux" ] || error 'This script is intended to run on Linux only.'
@@ -43,35 +30,37 @@ esac
 # Version parameter handling from original script
 VER_PARAM="${OLLAMA_VERSION:+?version=$OLLAMA_VERSION}"
 
-# Check for required tools
-NEEDS=$(require curl grep)
-if [ -n "$NEEDS" ]; then
-    status "ERROR: The following tools are required but missing:"
-    for NEED in $NEEDS; do
-        echo "  - $NEED"
-    done
-    exit 1
-fi
-
-# Determine installation directory
-for BINDIR in /usr/local/bin /usr/bin /bin; do
-    echo $PATH | grep -q $BINDIR && break || continue
-done
-OLLAMA_INSTALL_DIR=$(dirname ${BINDIR})
+# Set installation directory - using /usr/bin for atomic system compatibility
+BINDIR="/usr/bin"
 
 # Install binary
-status "Installing ollama to $OLLAMA_INSTALL_DIR"
+status "Installing ollama to $BINDIR"
 install -o0 -g0 -m755 -d $BINDIR
-install -o0 -g0 -m755 -d "$OLLAMA_INSTALL_DIR"
 
-status "Downloading Linux ${ARCH} bundle"
-curl --fail --show-error --location --progress-bar \
-    "https://ollama.com/download/ollama-linux-${ARCH}.tgz${VER_PARAM}" | \
-    tar -xzf - -C "$OLLAMA_INSTALL_DIR"
-
-if [ "$OLLAMA_INSTALL_DIR/bin/ollama" != "$BINDIR/ollama" ] ; then
-    status "Making ollama accessible in the PATH in $BINDIR"
-    ln -sf "$OLLAMA_INSTALL_DIR/ollama" "$BINDIR/ollama"
+# Try bundle first, fallback to standalone binary if bundle fails
+if curl -I --silent --fail --location "https://ollama.com/download/ollama-linux-${ARCH}.tgz${VER_PARAM}" >/dev/null ; then
+    status "Downloading Linux ${ARCH} bundle"
+    curl --fail --show-error --location --progress-bar \
+        "https://ollama.com/download/ollama-linux-${ARCH}.tgz${VER_PARAM}" | \
+        tar -xzf - -C "$TEMP_DIR"
+        
+    if [ ! -f "$TEMP_DIR/ollama" ]; then
+        error "Ollama binary not found in extracted archive"
+    fi
+    
+    install -v -o0 -g0 -m755 "$TEMP_DIR/ollama" "$BINDIR/ollama"
+else
+    status "Downloading Linux ${ARCH} CLI"
+    curl --fail --show-error --location --progress-bar \
+        "https://ollama.com/download/ollama-linux-${ARCH}${VER_PARAM}" \
+        -o "$TEMP_DIR/ollama"
+    
+    install -v -o0 -g0 -m755 "$TEMP_DIR/ollama" "$BINDIR/ollama"
 fi
 
-status "Ollama installation complete."
+# Verify successful installation
+if [ ! -x "$BINDIR/ollama" ]; then
+    error "Installation verification failed"
+fi
+
+status "Ollama installation complete"
