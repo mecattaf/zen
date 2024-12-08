@@ -28,6 +28,7 @@ To rebase an existing atomic Fedora installation to the latest build:
 - Authenticate to google chrome and follow through [/docs/chrome.md]
 - Authenticate to tailscale with `tailscale login`
 - Manually install `brew` packages specifically ollama, and load desired ollama models
+- GTK Settings > Select icon pack
 
 
 ### Troubleshooting flatpaks
