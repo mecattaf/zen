@@ -10,23 +10,23 @@ modules:
       - source: system
         destination: /
 
-  # Base configurations
-  - from-file: base/desktop-apps.yml
-  - from-file: base/fonts-themes.yml
-  - from-file: base/intel-support.yml
-  - from-file: base/login-manager.yml
-  - from-file: base/media-hardware.yml
-  - from-file: base/system-core.yml
-  - from-file: base/sytem-portals.yml
-  - from-file: base/wayland-environment.yml
+  # Base system components
+  - from-file: recipes/base/system-core.yml
+  - from-file: recipes/base/wayland-environment.yml
+  - from-file: recipes/base/desktop-apps.yml
+  - from-file: recipes/base/login-manager.yml
+  - from-file: recipes/base/intel-support.yml
+  - from-file: recipes/base/system-portals.yml
+  - from-file: recipes/base/media-hardware.yml
+  - from-file: recipes/base/fonts-themes.yml
   # COPR repositories
-  - from-file: copr/intel-npu.yml
-  - from-file: copr/starship.yml
-  - from-file: copr/zenrpm.yml
-  # YUM configurations
-  - from-file: yum/charm.yml
-  - from-file: yum/recipe.yml
-  - from-file: yum/tailscape.yml
+  - from-file: recipes/copr/starship.yml
+  - from-file: recipes/copr/zenrpm.yml
+  - from-file: recipes/copr/intel-npu.yml
+  # YUM repositories
+  - from-file: recipes/yum/charm.yml
+  - from-file: recipes/yum/intel-basekit.yml
+  - from-file: recipes/yum/tailscale.yml
 
   - type: rpm-ostree
     remove:

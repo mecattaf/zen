@@ -1,0 +1,11 @@
+type: rpm-ostree
+install:
+  - fontawesome-fonts-all
+  - gnome-icon-theme
+  - gnome-themes-extra
+  - google-noto-emoji-fonts
+  - google-noto-fonts-common
+  - google-noto-sans-fonts
+  - google-roboto-fonts
+  - overpass-fonts
+  - overpass-mono-fonts
