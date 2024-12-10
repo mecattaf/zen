@@ -73,12 +73,11 @@ modules:
       #- fsync-kernel-override.sh
 
   - type: chezmoi
-    install_chezmoi: true 
     repository: "https://github.com/mecattaf/dots-zen"
-    run_every: '1d' 
-    wait_after_boot: '5m' 
-    disable_init: false 
-    disable_update: false 
+    run-every: '1d'
+    wait-after-boot: '5m'
+    disable-init: false
+    disable-update: false
 
   - type: default-flatpaks
     notify: true 
