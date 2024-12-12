@@ -12,6 +12,7 @@ install:
   - g++
   - gcc
   - gcc-c++
+  - lame
   - libadwaita
   - make
   - meson
