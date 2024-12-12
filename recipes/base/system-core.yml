@@ -12,6 +12,7 @@ install:
   - g++
   - gcc
   - gcc-c++
+  - gh
   - lame
   - libadwaita
   - make
