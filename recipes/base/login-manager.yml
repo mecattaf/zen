@@ -1,6 +1,5 @@
 type: rpm-ostree
 install:
-  - adwaita-qt5
   - qt5-qtgraphicaleffects
   - qt5-qtquickcontrols2
   - qt5-qtsvg
