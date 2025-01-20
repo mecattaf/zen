@@ -22,3 +22,4 @@ install:
   - xarchiver
   - zathura
   - zathura-pdf-poppler
+  - https://github.com/av/harbor/releases/download/v0.2.24/Harbor-0.2.24-1.x86_64.rpm
