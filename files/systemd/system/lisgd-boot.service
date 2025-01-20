@@ -1,0 +1,11 @@
+[Unit]
+Description=Setup lisgd input permissions
+Before=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/etc/lisgd/lisgd-useradd
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

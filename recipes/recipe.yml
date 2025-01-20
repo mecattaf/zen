@@ -59,6 +59,7 @@ modules:
         - sddm-boot.service
         - tailscaled.service
         - ollama-boot.service
+        - lisgd-boot.service
       disabled:
         - rpm-ostree-countme.timer
         #user:
