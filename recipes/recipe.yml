@@ -69,7 +69,6 @@ modules:
         
   - type: script
     scripts:
-      - setsddmtheming.sh
       - settheming.sh
       - post-install.sh
       #- fsync-kernel-override.sh
