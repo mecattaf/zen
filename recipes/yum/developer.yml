@@ -1,0 +1,14 @@
+type: rpm-ostree
+install:
+  # Apps
+  - code
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-compose-plugin
+
+  # Utilities
+  - dbus-x11
+  - git-credential-libsecret
+  - pipx
+  - direnv

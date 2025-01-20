@@ -1,0 +1,11 @@
+[Unit]
+Description=Configure Docker user groups on system boot
+Before=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/etc/docker/docker-useradd
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

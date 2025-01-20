@@ -60,6 +60,7 @@ modules:
         - tailscaled.service
         - ollama-boot.service
         - lisgd-boot.service
+        - docker-boot.service
       disabled:
         - rpm-ostree-countme.timer
         #user:
