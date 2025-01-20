@@ -2,8 +2,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.0
 import SddmComponents 2.0
 
-import Qt5Compat.GraphicalEffects
-
 Rectangle {
     id: root
     width: 640
@@ -202,14 +200,6 @@ Rectangle {
                         NumberAnimation { from: 10; to: 5;  duration: 400 }
                     }
                 }
-            }
-
-            FastBlur {
-                id: fastBlur
-                z: 3
-                anchors.fill: image
-                source: image
-                radius: config.intValue("blurRadius")
             }
 
         }
