@@ -62,6 +62,7 @@ modules:
         - ollama-boot.service
         - lisgd-boot.service
         - docker-boot.service
+        - docker.service
       disabled:
         - rpm-ostree-countme.timer
         #user:
