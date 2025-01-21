@@ -26,6 +26,7 @@ modules:
   - from-file: copr/zenrpm.yml
   # YUM configurations
   - from-file: yum/charm.yml
+  - from-file: yum/developer.yml
   - from-file: yum/tailscale.yml
   - from-file: yum/openvino-2024.yml
   - from-file: yum/intel-basekit.yml 
