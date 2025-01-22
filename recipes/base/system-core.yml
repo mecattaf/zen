@@ -5,7 +5,7 @@ install:
   - cmake
   - cpio
   - distrobox
-  #- docker-compose
+  - docker-compose
   - eza
   - fish
   - fprintd-pam
