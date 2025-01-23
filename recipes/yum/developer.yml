@@ -14,5 +14,6 @@ install:
   - dbus-x11
   - git-credential-libsecret
   - pipx
+  - uv
   - direnv
   - zoxide
