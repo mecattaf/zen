@@ -23,6 +23,7 @@ modules:
   # COPR repositories
   - from-file: copr/intel-npu.yml
   - from-file: copr/starship.yml
+  - from-file: copr/atuin.yml
   - from-file: copr/zenrpm.yml
   # YUM configurations
   - from-file: yum/charm.yml

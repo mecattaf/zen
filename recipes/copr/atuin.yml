@@ -1,0 +1,6 @@
+type: rpm-ostree
+repos:
+  - https://copr.fedorainfracloud.org/coprs/sramanujam/atuin/repo/fedora-%OS_VERSION%/sramanujam-atuin-fedora-%OS_VERSION%.repo
+install:
+  - atuin
+
