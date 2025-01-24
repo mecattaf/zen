@@ -13,6 +13,7 @@ install:
   # Utilities
   - dbus-x11
   - git-credential-libsecret
+  - git-lfs
   - pipx
   - uv
   - direnv
