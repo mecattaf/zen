@@ -4,8 +4,8 @@ repos:
 install:
   - bibata-cursor-themes
   - cliphist
-  - lisgd
   - nwg-clipman
   - nwg-look
   - python-autotiling
   - wl-gammarelay-rs
+  - whisper-transcription-wayland
