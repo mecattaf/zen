@@ -1,14 +1,11 @@
 type: rpm-ostree
 install:
   # Apps
-  - code
   - docker-ce
   - docker-ce-cli
   - containerd.io
   - docker-compose-plugin
   - docker-buildx-plugin
-
-
 
   # Utilities
   - dbus-x11
