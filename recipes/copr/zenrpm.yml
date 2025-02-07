@@ -8,4 +8,3 @@ install:
   - nwg-look
   - python-autotiling
   - wl-gammarelay-rs
-  - whisper-transcription-wayland
