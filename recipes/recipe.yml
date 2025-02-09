@@ -87,7 +87,6 @@ modules:
       repo-name: flathub
       install:
         - com.google.Chrome
-        - org.videolan.VLC
         - org.desmume.DeSmuME
         - io.mgba.mGBA
         - com.hunterwittenborn.Celeste

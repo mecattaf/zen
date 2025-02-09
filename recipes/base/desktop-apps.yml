@@ -18,6 +18,7 @@ install:
   - thunar-archive-plugin
   - thunar-volman
   - udiskie
+  - vlc
   - wayvnc
   - xarchiver
   - zathura
