@@ -65,7 +65,3 @@ For the Jan. 13th 2024 bazzite-deck (Fedora 39) build.
 sudo rpm-ostree rebase fedora:fedora/40/x86_64/silverblue
 ```
 
-
-## ISO
-
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso). 
