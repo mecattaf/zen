@@ -27,9 +27,9 @@ To rebase an existing atomic Fedora installation to the latest build:
 - Copy over git credentials
 - Authenticate to google chrome and [follow instructions](docs/chrome.md)
 - Authenticate to tailscale with `tailscale login`
-- Load local models for whisper (huggingface) and ollama. We note that huggingface repos can be cloned with git (git-lfs from device), and my hf: mecattaf 
-- Authenticate into atuin
-- GTK Settings > Select icon pack
+- Load local models for whisper with `just whisper`
+[Todo]: Load ollama models, possibly using justfile?
+- GTK Settings > Select icon pack with `nwg-look`
 
 
 ### Troubleshooting flatpaks

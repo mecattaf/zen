@@ -80,6 +80,11 @@ modules:
     disable-init: false
     disable-update: false
 
+  - type: justfiles
+    validate: false
+    include:
+      - whisper.just
+
   - type: default-flatpaks
     notify: true 
     user:
