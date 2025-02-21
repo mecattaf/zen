@@ -2,7 +2,6 @@ type: rpm-ostree
 repos:
   - https://copr.fedorainfracloud.org/coprs/mecattaf/zenRPM/repo/fedora-%OS_VERSION%/mecattaf-zenRPM-fedora-%OS_VERSION%.repo
 install:
-  - aider
   - bibata-cursor-themes
   - cliphist
   - nwg-clipman
