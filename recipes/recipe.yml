@@ -50,16 +50,16 @@ modules:
         - Iosevka
         - NerdFontsSymbolsOnly
 
-  - type: script
-    scripts:
-      - install-ollama.sh
+ # - type: script
+ #   scripts:
+ #     - install-ollama.sh
 
   - type: systemd
     system:
       enabled:
         - sddm-boot.service
         - tailscaled.service
-        - ollama-boot.service
+ #       - ollama-boot.service
       disabled:
         - rpm-ostree-countme.timer
         #user:
