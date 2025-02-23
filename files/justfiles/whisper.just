@@ -29,7 +29,7 @@ whisper:
     echo "${b}Setup almost complete!${n}"
     echo "Enabling the systemd service"
     systemctl --user daemon-reload
-    systemctl --user enable --now whisper-npu
+    systemctl --user enable --now whisper-npu.container
     echo ""
     
     echo "${b}Whisper NPU Server setup complete!${n}"
