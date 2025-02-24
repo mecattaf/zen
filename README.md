@@ -30,6 +30,11 @@ To rebase an existing atomic Fedora installation to the latest build:
 - Load local models for whisper with `just whisper`
 [Todo]: Load ollama models, possibly using justfile?
 - GTK Settings > Select icon pack with `nwg-look`
+- Plugin local Nexcloud service to LaCie USB C drive and access on `http://0.0.0.0:8443/` then set up Celeste to sync files. In case we need to reload the nexcloud cache:
+```
+❯ # Run the occ scan command inside the container
+  podman exec nextcloud php occ files:scan --all
+```
 
 
 ### Troubleshooting flatpaks
