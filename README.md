@@ -39,6 +39,11 @@ systemctl --user start nextcloud
 ❯ # Run the occ scan command inside the container
   podman exec nextcloud php occ files:scan --all
 ```
+- We also make sure to add python packages install through uv, add to justfile:
+```
+uv tool install --force --python python3.11 open-webui@latest
+uv tool install --force --python python3.12 aider-chat@latest
+```
 
 
 ### Troubleshooting flatpaks
