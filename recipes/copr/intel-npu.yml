@@ -1,6 +1,0 @@
-type: rpm-ostree
-repos:
-  - https://copr.fedorainfracloud.org/coprs/xanderlent/intel-npu-driver/repo/fedora-%OS_VERSION%/xanderlent-intel-npu-driver-fedora-%OS_VERSION%.repo
-install:
-  - intel-npu-firmware
-  - intel-npu-level-zero

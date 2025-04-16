@@ -1,11 +1,4 @@
 type: rpm-ostree
 install:
-  - qt5-qtgraphicaleffects
-  - qt5-qtquickcontrols2
-  - qt5-qtsvg
-  - qt5-qtwayland
-  - qt5ct
-  - qt6-qtwayland
-  - qt6ct
   - sddm
   - sddm-themes

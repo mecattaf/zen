@@ -3,7 +3,7 @@
 name: zen
 description: Fedora Atomic spin for Asus Zenbook Duo
 base-image: ghcr.io/ublue-os/base-main
-image-version: 41
+image-version: 42
 
 modules:
   - type: files
@@ -21,14 +21,11 @@ modules:
   - from-file: base/sytem-portals.yml
   - from-file: base/wayland-environment.yml
   # COPR repositories
-  - from-file: copr/intel-npu.yml
   - from-file: copr/all-packages.yml
   - from-file: copr/zenrpm.yml
   # YUM configurations
   - from-file: yum/developer.yml
   - from-file: yum/tailscale.yml
-  - from-file: yum/openvino-2024.yml
-  - from-file: yum/intel-basekit.yml 
 
   - type: rpm-ostree
     remove:
@@ -102,9 +99,5 @@ modules:
         - io.bassi.Amberol
           #- org.freedesktop.Platform.VulkanLayer.OBSVkCapture
           #- org.freedesktop.Platform.GStreamer.gstreamer-vaapi
-
-    #  - type: brew
-    #    nofile-limits: true
-    #    brew-analytics: false
 
   - type: signing
