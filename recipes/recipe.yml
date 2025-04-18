@@ -88,12 +88,12 @@ modules:
       repo-name: flathub
       install:
         - com.google.Chrome
+        - engineer.atlas.Nyxt
+        - it.mijorus.gearlever
         - org.desmume.DeSmuME
         - io.mgba.mGBA
         - com.hunterwittenborn.Celeste
         - it.mijorus.collector
-        - io.github.dvlv.boxbuddyrs
-        - it.mijorus.gearlever
         - com.obsproject.Studio
         - com.obsproject.Studio.Plugin.OBSVkCapture
         - io.bassi.Amberol
