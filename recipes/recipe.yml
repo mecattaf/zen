@@ -88,7 +88,7 @@ modules:
       repo-name: flathub
       install:
         - com.google.Chrome
-        - engineer.atlas.Nyxt
+        - app.zen_browser.zen
         - it.mijorus.gearlever
         - org.desmume.DeSmuME
         - io.mgba.mGBA
