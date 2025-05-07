@@ -10,8 +10,8 @@ modules:
   - from-file: copr.yml
 
   - type: dnf
-    packages:
-      remove:
+    remove:
+      packages:
         - firefox
         - firefox-langpacks
         - virtualbox-guest-additions
@@ -43,7 +43,7 @@ modules:
         
   - type: script
     #scripts:
-      #- post-install.sh
+    #  - post-install.sh
     snippets:
       - "sed -i 's/Inherits=Catppuccin-Noir-Standard-Green-Dark/Inherits=Catppuccin-SE/' /usr/share/icons/default/index.theme"
 
