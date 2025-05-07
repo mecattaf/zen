@@ -38,9 +38,8 @@ modules:
     system:
       enabled:
         - sddm-boot.service
-      disabled:
-        #- rpm-ostree-countme.timer
-        
+      disabled: []
+
   - type: script
     snippets:
       - "sed -i 's/Inherits=Catppuccin-Noir-Standard-Green-Dark/Inherits=Catppuccin-SE/' /usr/share/icons/default/index.theme"
@@ -67,7 +66,7 @@ modules:
         - com.obsproject.Studio
         - com.obsproject.Studio.Plugin.OBSVkCapture
         - io.bassi.Amberol
-          #- org.freedesktop.Platform.VulkanLayer.OBSVkCapture
-          #- org.freedesktop.Platform.GStreamer.gstreamer-vaapi
+        # - org.freedesktop.Platform.VulkanLayer.OBSVkCapture
+        # - org.freedesktop.Platform.GStreamer.gstreamer-vaapi
 
   - type: signing
