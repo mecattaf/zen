@@ -42,10 +42,8 @@ modules:
         #- rpm-ostree-countme.timer
         
   - type: script
-    #scripts:
-    #  - post-install.sh
-     snippets:
-       - "sed -i 's/Inherits=Catppuccin-Noir-Standard-Green-Dark/Inherits=Catppuccin-SE/' /usr/share/icons/default/index.theme"
+    snippets:
+      - "sed -i 's/Inherits=Catppuccin-Noir-Standard-Green-Dark/Inherits=Catppuccin-SE/' /usr/share/icons/default/index.theme"
 
   - type: chezmoi
     repository: "https://github.com/mecattaf/dots-zen"
