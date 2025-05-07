@@ -139,3 +139,7 @@ install:
   - wshowkeys
   - wtype
   - xorg-x11-server-Xwayland
+# Local AI functionality
+  - openvino
+  - ollama
+  - ramalama

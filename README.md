@@ -26,25 +26,15 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 - Copy over git credentials
 - Authenticate to google chrome and [follow instructions](docs/chrome.md)
-- Authenticate to tailscale with `tailscale login`
-- Load local models for whisper with `just whisper`
-[Todo]: Load ollama models, possibly using justfile?
 - GTK Settings > Select icon pack with `nwg-look`
 ```
 systemctl --user start nextcloud
 # might also need to enable nexcloud and whisper-npu
 ```
-- Plugin local Nexcloud service to LaCie USB C drive and access on `http://0.0.0.0:8443/` then set up Celeste to sync files. In case we need to reload the nexcloud cache:
-```
-❯ # Run the occ scan command inside the container
-  podman exec nextcloud php occ files:scan --all
-```
 - We also make sure to add python packages install through uv, add to justfile:
 ```
-uv tool install --force --python python3.11 open-webui@latest
 uv tool install --force --python python3.12 aider-chat@latest
 ```
-
 
 ### Troubleshooting flatpaks
 
