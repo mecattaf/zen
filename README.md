@@ -79,3 +79,29 @@ For the Jan. 13th 2024 bazzite-deck (Fedora 39) build.
 sudo rpm-ostree rebase fedora:fedora/40/x86_64/silverblue
 ```
 
+
+
+---
+
+## Installation (ISO) [Recommended]
+
+> [!IMPORTANT]  
+> Please read the [Wiki](https://github.com/yourusername/zen/wiki) before proceeding with the installation.
+
+> [!IMPORTANT]  
+> Backup your important data before proceeding with the installation.
+
+> [!CAUTION]
+> This ISO installation guide assumes that you want to install Zen Linux on single-boot single-disk setup.
+
+### [DOWNLOAD LINK](https://archive.org/details/@thomas_mecattaf)<br/>(ISOs are in DD-MM-YYYY date format)
+
+- ISO doesn't require an active internet connection during its usage (but it is recommended to have it, to make NTP working).
+- Download the ISO & proceed with installation.
+- When ISO is booted, finish the following mandatory tasks:
+  - In "Installation Destination", select on which disk to install Zen Linux, select "Storage Configuration" to Automatic & select "Free up space by removing or shrinking existing partitions".  
+    "Reclaim disk space" screen will pop-up. Click "Delete all" & "Reclaim space".
+  - In "User Creation", input full name, user name & password. Click Done.
+- Optionally do tasks of "Keyboard", "Language Support", "Time & Date", etc.
+- Click "Begin Installation"
+- When ISO finished the installation, follow the instructions of the 1st-time setup pop-up & finish it.
