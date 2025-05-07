@@ -10,12 +10,13 @@ modules:
   - from-file: copr.yml
 
   - type: dnf
-    remove:
-      - firefox
-      - firefox-langpacks
-      - virtualbox-guest-additions
-      - toolbox
-      - nvtop
+    packages:
+      remove:
+        - firefox
+        - firefox-langpacks
+        - virtualbox-guest-additions
+        - toolbox
+        - nvtop
 
   - type: files
     files:
@@ -43,7 +44,7 @@ modules:
   - type: script
     scripts:
       - settheming.sh
-      - post-install.sh
+      #- post-install.sh
 
   - type: chezmoi
     repository: "https://github.com/mecattaf/dots-zen"
@@ -59,7 +60,6 @@ modules:
       repo-name: flathub
       install:
         - com.google.Chrome
-        - app.zen_browser.zen
         - it.mijorus.gearlever
         - org.desmume.DeSmuME
         - io.mgba.mGBA
