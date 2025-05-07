@@ -1,6 +1,0 @@
-type: rpm-ostree
-repos:
-  - https://copr.fedorainfracloud.org/coprs/relativesure/all-packages/repo/fedora-%OS_VERSION%/relativesure-all-packages-fedora-%OS_VERSION%.repo
-install:
-  - starship
-  - atuin

@@ -6,33 +6,21 @@ base-image: ghcr.io/ublue-os/base-main
 image-version: 42
 
 modules:
-  - type: files
-    files:
-      - source: system
-        destination: /
+  - from-file: base.yml
+  - from-file: copr.yml
 
-  # Base configurations
-  - from-file: base/desktop-apps.yml
-  - from-file: base/fonts-themes.yml
-  - from-file: base/intel-support.yml
-  - from-file: base/login-manager.yml
-  - from-file: base/media-hardware.yml
-  - from-file: base/system-core.yml
-  - from-file: base/sytem-portals.yml
-  - from-file: base/wayland-environment.yml
-  # COPR repositories
-  - from-file: copr/all-packages.yml
-  - from-file: copr/zenrpm.yml
-  # YUM configurations
-  - from-file: yum/developer.yml
-
-  - type: rpm-ostree
+  - type: dnf
     remove:
       - firefox
       - firefox-langpacks
       - virtualbox-guest-additions
       - toolbox
       - nvtop
+
+  - type: files
+    files:
+      - source: system
+        destination: /
 
   - type: fonts
     fonts:
@@ -49,14 +37,8 @@ modules:
     system:
       enabled:
         - sddm-boot.service
-        - tailscaled.service
- #       - ollama-boot.service
       disabled:
-        - rpm-ostree-countme.timer
-        #user:
-        # enabled:
-        #- ollama.service
-        #- ollama-web.service
+        #- rpm-ostree-countme.timer
         
   - type: script
     scripts:
@@ -69,11 +51,6 @@ modules:
     wait-after-boot: '5m'
     disable-init: false
     disable-update: false
-
-  - type: justfiles
-    validate: false
-    include:
-      - whisper.just
 
   - type: default-flatpaks
     notify: true 
