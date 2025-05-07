@@ -45,10 +45,6 @@ modules:
         - Iosevka
         - NerdFontsSymbolsOnly
 
- # - type: script
- #   scripts:
- #     - install-ollama.sh
-
   - type: systemd
     system:
       enabled:
@@ -66,7 +62,6 @@ modules:
     scripts:
       - settheming.sh
       - post-install.sh
-      #- fsync-kernel-override.sh
 
   - type: chezmoi
     repository: "https://github.com/mecattaf/dots-zen"
