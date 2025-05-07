@@ -1,16 +1,15 @@
 type: dnf
-repos:
-  copr:
-    - name: mecattaf/zenRPM
 install:
   packages:
-    - bibata-cursor-themes
-    - cliphist
-    - nwg-clipman
-    - nwg-look
-    - python-autotiling
-    - wl-gammarelay-rs
-    #- starship
-    #- atuin
-    #- eza
-    #- scroll
+    - repo: copr:copr.fedorainfracloud.org:mecattaf:zenRPM
+      packages:
+        - bibata-cursor-themes
+        - cliphist
+        - nwg-clipman
+        - nwg-look
+        - python-autotiling
+        - wl-gammarelay-rs
+        #- starship
+        #- atuin
+        #- eza
+        #- scroll
