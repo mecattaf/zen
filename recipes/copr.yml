@@ -3,13 +3,15 @@ install:
   packages:
     - repo: copr:copr.fedorainfracloud.org:mecattaf:zenRPM
       packages:
+        - atuin
+        - better-control
         - bibata-cursor-themes
         - cliphist
+        - eza
+        - lisgd
         - nwg-clipman
         - nwg-look
         - python-autotiling
-        - wl-gammarelay-rs
-        #- starship
-        #- atuin
-        #- eza
         #- scroll
+        - starship
+        - wl-gammarelay-rs
