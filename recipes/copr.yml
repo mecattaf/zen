@@ -1,17 +1,18 @@
 type: dnf
+repos:
+  copr:
+    - mecattaf/zenRPM
 install:
   packages:
-    - repo: copr:copr.fedorainfracloud.org:mecattaf:zenRPM
-      packages:
-        - atuin
-        - better-control
-        - bibata-cursor-themes
-        - cliphist
-        - eza
-        - lisgd
-        - nwg-clipman
-        - nwg-look
-        - python-autotiling
-        #- scroll
-        - starship
-        - wl-gammarelay-rs
+    - atuin
+    - better-control
+    - bibata-cursor-themes
+    - cliphist
+    - eza
+    - lisgd
+    - nwg-clipman
+    - nwg-look
+    - python-autotiling
+    - starship
+    #- scroll
+    - wl-gammarelay-rs
