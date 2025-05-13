@@ -9,4 +9,4 @@ $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generato
 EOF
 set +a
 
-exec sway
+exec scroll
