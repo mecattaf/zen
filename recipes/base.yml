@@ -135,7 +135,6 @@ install:
     - waybar
     - wf-recorder
     - wl-clipboard
-    - wlogout
     - wlr-randr
     - wshowkeys
     - wtype
