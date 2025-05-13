@@ -70,6 +70,7 @@ install:
     - pipewire-pulseaudio
     - wireplumber
     # System Core
+    - acpi
     - aria2
     - bolt
     - cmake
