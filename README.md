@@ -26,6 +26,7 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 - Copy over git credentials
 - Authenticate to google chrome and [follow instructions](docs/chrome.md)
+- Authenticate to gh from the CLI
 - We also make sure to add python packages install through uv, add to justfile:
 ```
 uv tool install --force --python python3.12 aider-chat@latest

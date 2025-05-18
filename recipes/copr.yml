@@ -9,10 +9,11 @@ install:
     - bibata-cursor-themes
     - cliphist
     - eza
+    - iwmenu
     - lisgd
     - nwg-clipman
     - nwg-look
     - python-autotiling
+    - scroll
     - starship
-    #- scroll
     - wl-gammarelay-rs
