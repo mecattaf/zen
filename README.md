@@ -2,7 +2,38 @@
 
 See the [BlueBuild docs](https://blue-build.org/how-to/setup/). 
 
-## Installation
+## Installation (ISO) [Recommended]
+
+> [!IMPORTANT]  
+> Backup your important data before proceeding with the installation.
+
+> [!CAUTION]
+> This ISO installation guide assumes that you want to install Zen Linux on single-boot single-disk setup.
+
+### [DOWNLOAD LINK](https://github.com/mecattaf/zen/actions/workflows/build-iso.yml)
+Click on the most recent successful build, then download the ISO artifact.  
+ISOs are named in DD-MM-YYYY date format for easy identification.
+
+- Download and extract the ISO artifact from GitHub Actions
+- ISO doesn't require an active internet connection during its usage (but it is recommended to have it for NTP functionality)
+- Boot from the ISO and proceed with installation
+- When ISO is booted, complete the following mandatory configuration:
+  - **Network & Host Name**: Configure your WiFi connection if needed
+  - **Installation Destination**: Select target disk, choose "Storage Configuration" → Automatic, then "Free up space by removing or shrinking existing partitions"
+    - When "Reclaim disk space" screen appears, click "Delete all" and "Reclaim space"
+  - **User Creation**: Input your full name, username, and password. Click Done.
+  - **Root Password**: Set a root password for system administration (recommended for Sway environments)
+- Optionally configure "Keyboard", "Language Support", "Time & Date", etc.
+- Click "Begin Installation"
+- After installation completes, reboot and enjoy your new Zen Linux system
+
+### Post-Installation Notes
+
+After first boot, your Sway environment will be ready to use with all configured dotfiles and packages. The system will automatically apply your chezmoi configuration, so your personalized environment should be available within a few minutes of first login.
+
+---
+
+## Installation (Rebase)
 
 To rebase an existing atomic Fedora installation to the latest build:
 
@@ -22,6 +53,7 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
   systemctl reboot
   ```
+
 ### Manual Steps
 
 - Copy over git credentials
@@ -65,29 +97,3 @@ For the Jan. 13th 2024 bazzite-deck (Fedora 39) build.
 sudo rpm-ostree rebase fedora:fedora/40/x86_64/silverblue
 ```
 
-
-
----
-
-## Installation (ISO) [Recommended]
-
-> [!IMPORTANT]  
-> Please read the [Wiki](https://github.com/yourusername/zen/wiki) before proceeding with the installation.
-
-> [!IMPORTANT]  
-> Backup your important data before proceeding with the installation.
-
-> [!CAUTION]
-> This ISO installation guide assumes that you want to install Zen Linux on single-boot single-disk setup.
-
-### [DOWNLOAD LINK](https://archive.org/details/@thomas_mecattaf)<br/>(ISOs are in DD-MM-YYYY date format)
-
-- ISO doesn't require an active internet connection during its usage (but it is recommended to have it, to make NTP working).
-- Download the ISO & proceed with installation.
-- When ISO is booted, finish the following mandatory tasks:
-  - In "Installation Destination", select on which disk to install Zen Linux, select "Storage Configuration" to Automatic & select "Free up space by removing or shrinking existing partitions".  
-    "Reclaim disk space" screen will pop-up. Click "Delete all" & "Reclaim space".
-  - In "User Creation", input full name, user name & password. Click Done.
-- Optionally do tasks of "Keyboard", "Language Support", "Time & Date", etc.
-- Click "Begin Installation"
-- When ISO finished the installation, follow the instructions of the 1st-time setup pop-up & finish it.

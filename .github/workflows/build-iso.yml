@@ -28,10 +28,15 @@ jobs:
       fail-fast: false
       matrix:
         image_name: [zen]
-        major_version: [42]
+        major_version: [41]  
         image_tag: [latest]
 
     steps:
+      - name: Set timezone to UTC
+        uses: MathRobin/timezone-action@v1.1
+        with:
+          timezoneLinux: 'UTC'
+
       - name: Fetch current date
         shell: bash
         run: |
@@ -55,8 +60,6 @@ jobs:
           enable_cache_dnf: "false"
           enable_cache_skopeo: "false"
           enable_flatpak_dependencies: "false"
-          flatpak_remote_name: "flathub-system"
-          flatpak_remote_url: "https://flathub.org/repo/flathub.flatpakrepo"
           additional_templates: "${{ github.workspace }}/kickstart/anaconda_defaults.tmpl"
 
       - name: Move ISO to Upload Directory
@@ -69,10 +72,12 @@ jobs:
           mv ${{ steps.build.outputs.iso_path }}/${{ steps.build.outputs.iso_name }}-CHECKSUM ${ISO_UPLOAD_DIR}
           echo "iso-upload-dir=${ISO_UPLOAD_DIR}" >> $GITHUB_OUTPUT     
 
-      - name: Upload ISO to archive.org
-        uses: RoyalOughtness/internet-archive-upload@v7
+      - name: Upload ISO and Checksum to Job Artifacts
+        uses: actions/upload-artifact@v4
         with:
-          access-key: ${{ secrets.IA_ACCESS_KEY }}
-          secret-key: ${{ secrets.IA_SECRET_KEY }}
-          identifier: ${{ matrix.image_name }}_${{ env.TIMESTAMP }}
-          files: ${{ steps.upload-directory.outputs.iso-upload-dir }}
+          name: ${{ matrix.image_name }}_${{ env.TIMESTAMP }}_ISO
+          path: ${{ steps.upload-directory.outputs.iso-upload-dir }}
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 0
+          overwrite: true
