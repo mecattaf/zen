@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-name: zen
-description: Fedora Atomic spin for Asus Zenbook Duo
+name: duo
+description: Fedora Atomic spin for dual-screen laptops like Asus Zenbook Duo
 base-image: ghcr.io/ublue-os/base-main
 image-version: 42
 
@@ -45,7 +45,7 @@ modules:
       - "sed -i 's/Inherits=Catppuccin-Noir-Standard-Green-Dark/Inherits=Catppuccin-SE/' /usr/share/icons/default/index.theme"
 
   - type: chezmoi
-    repository: "https://github.com/mecattaf/dots-zen"
+    repository: "https://github.com/mecattaf/dotfiles"
     run-every: '1d'
     wait-after-boot: '5m'
     disable-init: false

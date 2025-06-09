@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=Custom Sway
-Comment=An i3-compatible Wayland compositor with custom environment
+Name=Scroll
+Comment=A scrolling window manager based on sway - like PaperWM or niri
 Exec=/usr/etc/scroll/scrollrun
 Type=Application
-DesktopNames=CustomSway
+DesktopNames=scroll

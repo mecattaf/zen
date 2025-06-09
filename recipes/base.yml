@@ -107,6 +107,7 @@ install:
     - ydotool
     - yt-dlp
     # Sytem Portals
+    # - better-settings
     - dbus-daemon
     - dbus-tools
     - gsettings-desktop-schemas

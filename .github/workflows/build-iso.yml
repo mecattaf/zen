@@ -27,7 +27,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        image_name: [zen]
+        image_name: [duo]
         major_version: [41]  
         image_tag: [latest]
 
@@ -60,7 +60,7 @@ jobs:
           enable_cache_dnf: "false"
           enable_cache_skopeo: "false"
           enable_flatpak_dependencies: "false"
-          additional_templates: "${{ github.workspace }}/kickstart/anaconda_defaults.tmpl"
+          additional_templates: "kickstart/anaconda_defaults.tmpl"
 
       - name: Move ISO to Upload Directory
         id: upload-directory

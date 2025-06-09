@@ -5,7 +5,6 @@ repos:
 install:
   packages:
     - atuin
-    - better-control
     - bibata-cursor-themes
     - cliphist
     - duo-extras

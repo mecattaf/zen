@@ -10,7 +10,7 @@ See the [BlueBuild docs](https://blue-build.org/how-to/setup/).
 > [!CAUTION]
 > This ISO installation guide assumes that you want to install Zen Linux on single-boot single-disk setup.
 
-### [DOWNLOAD LINK](https://github.com/mecattaf/zen/actions/workflows/build-iso.yml)
+### [DOWNLOAD LINK](https://github.com/mecattaf/duo/actions/workflows/build-iso.yml)
 Click on the most recent successful build, then download the ISO artifact.  
 ISOs are named in DD-MM-YYYY date format for easy identification.
 
@@ -39,7 +39,7 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
-  sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/mecattaf/zen:latest
+  sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/mecattaf/duo:latest
   ```
 - Reboot to complete the rebase:
   ```
@@ -47,7 +47,7 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
 - Then rebase to the signed image, like so:
   ```
-  sudo rpm-ostree rebase ostree-image-signed:docker://ghcr.io/mecattaf/zen:latest
+  sudo rpm-ostree rebase ostree-image-signed:docker://ghcr.io/mecattaf/duo:latest
   ```
 - Reboot again to complete the installation
   ```
@@ -77,7 +77,7 @@ flatpak update --commit=<commit-of-working-version> com.google.Chrome
 
 View the list of available builds by entering:
 ```
-skopeo list-tags docker://ghcr.io/mecattaf/zen | sort -rV
+skopeo list-tags docker://ghcr.io/mecattaf/duo | sort -rV
 ```
 
 Rebasing to a specific build requires users to open a host terminal and enter:
