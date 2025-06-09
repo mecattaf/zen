@@ -1,19 +1,19 @@
 type: dnf
 repos:
   copr:
-    - mecattaf/zenRPM
+    - mecattaf/duoRPM
 install:
   packages:
     - atuin
     - better-control
     - bibata-cursor-themes
     - cliphist
+    - duo-extras
     - eza
     - iwmenu
     - lisgd
     - nwg-clipman
     - nwg-look
-    - python-autotiling
     - scroll
     - starship
     - wl-gammarelay-rs
