@@ -121,7 +121,7 @@ install:
     - xdg-user-dirs
     # Wayland Environment
     - azote
-    - grimshot
+    #- grimshot
     - grim
     - kanshi
     - light
