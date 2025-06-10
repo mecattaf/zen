@@ -7,7 +7,6 @@ install:
     - atuin
     - bibata-cursor-themes
     - cliphist
-    - duo-extras
     - eza
     - iwmenu
     - lisgd
