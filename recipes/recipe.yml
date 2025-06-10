@@ -7,7 +7,6 @@ image-version: 42
 
 modules:
   - from-file: base.yml
-  - from-file: copr.yml
 
   - type: dnf
     remove:
@@ -15,8 +14,13 @@ modules:
         - firefox
         - firefox-langpacks
         - virtualbox-guest-additions
+        - sway
         - toolbox
         - nvtop
+        - wlroots
+
+
+  - from-file: copr.yml
 
   - type: files
     files:
